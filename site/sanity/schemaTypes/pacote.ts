@@ -1,33 +1,65 @@
 import { defineField, defineType, defineArrayMember } from "sanity"
 import { AIRPORT_OPTIONS } from "../../lib/airports"
+import { areaPreview, HeroLiveField } from "../components/FieldPreview"
+import { DocProgress } from "../components/DocProgress"
 
 export const pacote = defineType({
   name:  "pacote",
   title: "Pacote",
   type:  "document",
+
+  /* barra de progresso da aba ativa no topo do formulário */
+  components: { input: DocProgress },
+
+  /* ── Abas no topo do documento ──────────────────────── */
+  groups: [
+    { name: "basico",       title: "Básico",        default: true },
+    { name: "rota",         title: "Rota & Datas"                  },
+    { name: "investimento", title: "Investimento"                  },
+    { name: "termos",       title: "Termos"                        },
+    { name: "conteudo",     title: "Conteúdo"                      },
+    { name: "seo",          title: "SEO"                           },
+  ],
+
+  /* ida/volta lado a lado */
+  fieldsets: [
+    {
+      name: "datas",
+      title: "Datas da viagem",
+      description: "A duração em dias é calculada automaticamente pelas datas.",
+      options: { columns: 2 },
+    },
+  ],
+
   fields: [
 
-    /* ── Identificação ────────────────────────────────── */
+    /* ══ BÁSICO ═══════════════════════════════════════════ */
     defineField({
-      name: "titulo", title: "Nome do destino",
+      name: "titulo", title: "Nome do destino", group: "basico",
       type: "string", validation: r => r.required(),
+      description: "Aparece na lista, no topo da página e no ticket (ex: Egito).",
     }),
     defineField({
-      name: "slug", title: "Slug (URL)",
+      name: "slug", title: "Slug (URL)", group: "basico",
       type: "slug",
-      options: { source: "titulo" },
+      options: {
+        source: "titulo",
+        /* normaliza: minúsculo, sem acento, espaços→"-", tira caracteres */
+        slugify: (input: string) =>
+          input
+            .toLowerCase()
+            .normalize("NFD").replace(/[̀-ͯ]/g, "")
+            .trim()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "")
+            .slice(0, 96),
+      },
       validation: r => r.required(),
+      description: "Endereço da página. Ao digitar/gerar, é normalizado (minúsculo, sem acento, espaços viram '-').",
     }),
-    defineField({
-      name: "badge", title: "Badge",
-      type: "string",
-      options: { list: ["vagas", "esgotado"] },
-    }),
-
-    /* ── Tipo de produto ─────────────────────────────── */
     defineField({
       name: "tipo",
-      title: "Tipo de produto",
+      title: "Tipo de produto", group: "basico",
       type: "string",
       options: {
         list: [
@@ -40,11 +72,30 @@ export const pacote = defineType({
       initialValue: "gruposDoRuas",
       validation: r => r.required(),
     }),
-
-    /* ── Homepage ─────────────────────────────────────── */
+    defineField({
+      name: "badge", title: "Badge", group: "basico",
+      type: "string",
+      options: { list: ["vagas", "esgotado"] },
+      description: "Selo na lista: 'vagas' (aviso) ou 'esgotado' (opaco e sem link).",
+    }),
+    defineField({
+      name: "heroImage", title: "Imagem principal (hero)", group: "basico",
+      type: "image",
+      options: { hotspot: true },
+      validation: r => r.required(),
+      description: "Foto do topo da página. Paisagem (16:9), mínimo 1600px.",
+      components: { field: HeroLiveField },
+    }),
+    defineField({
+      name: "descricaoCurta",
+      title: "Descrição curta (homepage)", group: "basico",
+      type: "string",
+      description: "Aparece nos cards da homepage. Máximo 120 caracteres.",
+      validation: r => r.max(120).warning("Mantenha abaixo de 120 chars para não cortar no card"),
+    }),
     defineField({
       name: "prioridade",
-      title: "Posição na homepage (dentro do seu tipo)",
+      title: "Posição na homepage (dentro do seu tipo)", group: "basico",
       type: "string",
       options: {
         list: [
@@ -59,42 +110,54 @@ export const pacote = defineType({
     }),
     defineField({
       name: "ordem",
-      title: "Ordem no carrossel (1 aparece primeiro)",
+      title: "Ordem no carrossel (1 aparece primeiro)", group: "basico",
       type: "number",
       initialValue: 99,
     }),
     defineField({
-      name: "descricaoCurta",
-      title: "Descrição curta (homepage)",
+      name: "continentes", title: "Continentes / Regiões", group: "basico",
+      type: "array",
+      of: [defineArrayMember({ type: "string" })],
+      description: "Usado no filtro por região na página de destinos.",
+    }),
+
+    /* ══ ROTA & DATAS ═════════════════════════════════════ */
+    defineField({
+      name: "aeroportoPartida",
+      title: "Aeroporto de partida", group: "rota",
       type: "string",
-      description: "Aparece nos cards da homepage. Máximo 120 caracteres.",
-      validation: r => r.max(120).warning("Mantenha abaixo de 120 chars para não cortar no card"),
+      options: { list: AIRPORT_OPTIONS },
+      initialValue: "GRU",
+      description: "Selecione da lista. Vira 'São Paulo (GRU)' no ticket.",
+      components: { field: areaPreview("/cms-preview/rota.png", "Rota — aparece assim no ticket") },
     }),
-
-    /* ── Imagem hero ──────────────────────────────────── */
     defineField({
-      name: "heroImage", title: "Imagem principal (hero)",
-      type: "image",
-      options: { hotspot: true },
-      validation: r => r.required(),
+      name: "aeroportoDestino",
+      title: "Aeroporto de destino", group: "rota",
+      type: "string",
+      options: { list: AIRPORT_OPTIONS },
     }),
-
-    /* ── Info do pacote ───────────────────────────────── */
-    defineField({ name: "periodo",  title: "Período (ex: Outubro 2026)", type: "string" }),
-    defineField({ name: "dias",     title: "Duração (dias)",             type: "number" }),
-    defineField({ name: "partida",  title: "Data de partida (ex: 04/10)",type: "string" }),
-    defineField({ name: "vagas",    title: "Número de vagas",            type: "number" }),
-    /* ── Investimento (entrada + parcelas) ────────────── */
     defineField({
-      name: "aereoIncluso",
-      title: "Aéreo incluso?",
-      type: "boolean",
-      description: "Deixe DESLIGADO para roteiros terrestres — o ticket mostra 'aéreo por conta do viajante'.",
-      initialValue: false,
+      name: "dataIda",
+      title: "Data de ida", group: "rota", fieldset: "datas",
+      type: "date",
+      options: { dateFormat: "DD/MM/YYYY" },
     }),
+    defineField({
+      name: "dataVolta",
+      title: "Data de volta", group: "rota", fieldset: "datas",
+      type: "date",
+      options: { dateFormat: "DD/MM/YYYY" },
+    }),
+    defineField({ name: "dias",     title: "Duração (dias) — usada se não houver datas", type: "number", group: "rota" }),
+    defineField({ name: "periodo",  title: "Período (texto, ex: Outubro 2026)", type: "string", group: "rota" }),
+    defineField({ name: "partida",  title: "Partida (texto curto, ex: 04/10)",  type: "string", group: "rota" }),
+    defineField({ name: "vagas",    title: "Número de vagas",                    type: "number", group: "rota" }),
+
+    /* ══ INVESTIMENTO ═════════════════════════════════════ */
     defineField({
       name: "moeda",
-      title: "Moeda",
+      title: "Moeda", group: "investimento",
       type: "string",
       options: {
         list: [
@@ -104,56 +167,31 @@ export const pacote = defineType({
         layout: "radio",
       },
       initialValue: "US$",
+      components: { field: areaPreview("/cms-preview/investimento.png", "Investimento — aparece assim no ticket") },
     }),
     defineField({
       name: "entrada",
-      title: "Entrada (valor por pessoa)",
+      title: "Entrada (valor por pessoa)", group: "investimento",
       type: "number",
-      description: "Valor da entrada. Ex: 2300 → US$ 2.300 (Entrada).",
+      description: "Ex: 2300 → US$ 2.300 (Entrada).",
     }),
     defineField({
       name: "numParcelas",
-      title: "Número de parcelas",
+      title: "Número de parcelas", group: "investimento",
       type: "number",
       description: "Ex: 9 → 9x.",
     }),
     defineField({
       name: "valorParcela",
-      title: "Valor de cada parcela",
+      title: "Valor de cada parcela", group: "investimento",
       type: "number",
       description: "Ex: 445 → 9x US$ 445.",
     }),
 
-    /* ── Rota (aeroportos + datas) ─────────────────────── */
-    defineField({
-      name: "aeroportoPartida",
-      title: "Aeroporto de partida",
-      type: "string",
-      options: { list: AIRPORT_OPTIONS },
-      initialValue: "GRU",
-    }),
-    defineField({
-      name: "aeroportoDestino",
-      title: "Aeroporto de destino",
-      type: "string",
-      options: { list: AIRPORT_OPTIONS },
-    }),
-    defineField({
-      name: "dataIda",
-      title: "Data de ida",
-      type: "date",
-      options: { dateFormat: "DD/MM/YYYY" },
-      description: "Abre um calendário. A duração em dias é calculada automaticamente.",
-    }),
-    defineField({
-      name: "dataVolta",
-      title: "Data de volta",
-      type: "date",
-      options: { dateFormat: "DD/MM/YYYY" },
-    }),
+    /* ══ TERMOS ═══════════════════════════════════════════ */
     defineField({
       name: "politicaCancelamento",
-      title: "Política de cancelamento",
+      title: "Política de cancelamento", group: "termos",
       type: "string",
       options: {
         list: [
@@ -164,70 +202,76 @@ export const pacote = defineType({
         layout: "radio",
       },
       initialValue: "nao-reembolsavel",
+      components: { field: areaPreview("/cms-preview/termos.png", "Termos — aparece assim no ticket") },
     }),
     defineField({
       name: "politicaReagendamento",
-      title: "Taxa de reagendamento",
+      title: "Taxa de reagendamento", group: "termos",
       type: "string",
       description: 'Ex: "R$ 500,00" ou "Gratuito até 60 dias antes"',
       initialValue: "R$ 500,00",
     }),
     defineField({
       name: "seguroValor",
-      title: "Seguro viagem — valor (riscado)",
+      title: "Seguro viagem — valor (riscado)", group: "termos",
       type: "string",
-      description: 'Aparece riscado ao lado de "Incluso". Ex: "R$ 129".',
+      description: 'Aparece riscado ao lado do status. Ex: "R$ 129". Deixe vazio para não mostrar.',
       initialValue: "R$ 129",
     }),
     defineField({
       name: "seguroStatus",
-      title: "Seguro viagem — status",
+      title: "Seguro viagem — status", group: "termos",
       type: "string",
-      description: 'Texto verde ao lado do valor. Ex: "Incluso".',
+      description: '"Incluso" (verde) ou "Não incluso" (cinza).',
       initialValue: "Incluso",
     }),
 
-    /* ── Personalização do ticket de pricing ──────────── */
+    /* ══ CONTEÚDO ═════════════════════════════════════════ */
     defineField({
       name: "tagline",
-      title: "Tagline do ticket (badge)",
+      title: "Tagline do ticket (badge)", group: "conteudo",
       type: "string",
       description: 'Frase no topo do ticket. Padrão: "Eternize esse momento da melhor maneira".',
+      components: { field: areaPreview("/cms-preview/tagline.png", "Badge — topo do ticket") },
     }),
     defineField({
       name: "rodapeAtendimento",
-      title: "Ticket — texto de atendimento",
+      title: "Ticket — texto de atendimento", group: "conteudo",
       type: "string",
       initialValue: "Fale direto com nosso atendimento",
+      components: { field: areaPreview("/cms-preview/rodape.png", "Rodapé do ticket") },
     }),
     defineField({
       name: "rodapeSeguranca",
-      title: "Ticket — texto de segurança",
+      title: "Ticket — texto de segurança", group: "conteudo",
       type: "string",
       initialValue: "Compra segura",
     }),
     defineField({
-      name: "continentes", title: "Continentes / Regiões",
+      name: "incluso", title: "O que está incluso", group: "conteudo",
+      type: "array",
+      of: [defineArrayMember({ type: "string" })],
+      description: "Lista do ticket (a linha de passagem aérea é ocultada automaticamente).",
+      components: { field: areaPreview("/cms-preview/incluso.png", "Incluso — aparece assim no ticket") },
+    }),
+    defineField({
+      name: "naoIncluso", title: "O que NÃO está incluso", group: "conteudo",
       type: "array",
       of: [defineArrayMember({ type: "string" })],
     }),
-
-    /* ── Conteúdo editorial ───────────────────────────── */
     defineField({
-      name: "intro", title: "Introdução (texto longo)",
+      name: "intro", title: "Introdução (texto longo)", group: "conteudo",
       type: "array",
       of: [defineArrayMember({ type: "block" })],
-      description: "Parágrafo editorial de abertura — aparece logo abaixo do hero.",
+      description: "Parágrafo editorial de abertura — logo abaixo do hero.",
     }),
     defineField({
-      name: "pullQuote", title: "Pull quote",
+      name: "pullQuote", title: "Pull quote", group: "conteudo",
       type: "text", rows: 3,
-      description: "Frase de destaque exibida em tamanho grande no meio da página.",
+      description: "Frase de destaque grande no meio da página.",
     }),
-
-    /* ── Itinerário dia a dia ─────────────────────────── */
     defineField({
-      name: "itinerario", title: "Itinerário",
+      name: "itinerario", title: "Itinerário", group: "conteudo",
       type: "array",
       of: [
         defineArrayMember({
@@ -255,29 +299,15 @@ export const pacote = defineType({
         }),
       ],
     }),
-
-    /* ── Galeria ──────────────────────────────────────── */
     defineField({
-      name: "galeria", title: "Galeria de fotos",
+      name: "galeria", title: "Galeria de fotos", group: "conteudo",
       type: "array",
       of: [defineArrayMember({ type: "image", options: { hotspot: true } })],
     }),
 
-    /* ── Incluso / Não incluso ────────────────────────── */
+    /* ══ SEO ══════════════════════════════════════════════ */
     defineField({
-      name: "incluso", title: "O que está incluso",
-      type: "array",
-      of: [defineArrayMember({ type: "string" })],
-    }),
-    defineField({
-      name: "naoIncluso", title: "O que NÃO está incluso",
-      type: "array",
-      of: [defineArrayMember({ type: "string" })],
-    }),
-
-    /* ── SEO / meta ───────────────────────────────────── */
-    defineField({
-      name: "metaDescricao", title: "Meta descrição (SEO)",
+      name: "metaDescricao", title: "Meta descrição (SEO)", group: "seo",
       type: "text", rows: 2,
     }),
   ],

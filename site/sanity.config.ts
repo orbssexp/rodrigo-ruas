@@ -3,6 +3,7 @@ import { structureTool } from "sanity/structure"
 import { visionTool } from "@sanity/vision"
 import { schema } from "./sanity/schema"
 import { GuiaDoc } from "./sanity/components/GuiaDoc"
+import { withPublishNotice } from "./sanity/components/publishNotice"
 
 const HOMEPAGE_ID = "singleton-homepage"
 
@@ -56,6 +57,12 @@ export default defineConfig({
     }),
     visionTool(),
   ],
+
+  /* pop-up ao publicar avisando do tempo de propagação no site */
+  document: {
+    actions: (prev) =>
+      prev.map((a) => (a.action === "publish" ? withPublishNotice(a) : a)),
+  },
 
   schema,
 })

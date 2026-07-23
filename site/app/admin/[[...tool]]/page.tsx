@@ -12,5 +12,5 @@ const NextStudio = dynamic_import(
 import config from "@/sanity.config"
 
 export default function AdminPage() {
-  return <NextStudio config={config} />
+  return <NextStudio config={config} scheme="light" />
 }

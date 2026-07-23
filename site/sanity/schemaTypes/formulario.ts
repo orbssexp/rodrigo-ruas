@@ -1,59 +1,66 @@
 import { defineField, defineType, defineArrayMember } from "sanity"
+import { DocProgress } from "../components/DocProgress"
 
 export const formulario = defineType({
   name:  "formulario",
   title: "Formulário de Contato",
   type:  "document",
 
+  components: { input: DocProgress },
+
+  groups: [
+    { name: "conteudo", title: "Conteúdo", default: true },
+    { name: "campos",   title: "Campos"                   },
+    { name: "envio",    title: "Envio (técnico)"          },
+  ],
+
   fields: [
 
     /* ── Conteúdo do modal ─────────────────────────────── */
     defineField({
-      name: "titulo",   title: "Título do formulário",
+      name: "titulo",   title: "Título do formulário", group: "conteudo",
       type: "string",   initialValue: "Quero conhecer os pacotes",
     }),
     defineField({
-      name: "descricao", title: "Descrição (aparece abaixo do título)",
+      name: "descricao", title: "Descrição (aparece abaixo do título)", group: "conteudo",
       type: "text",      rows: 2,
       initialValue: "Preencha os dados abaixo e nossa equipe entra em contato em até 1 hora.",
     }),
-
-    /* ── Destino do envio ──────────────────────────────── */
     defineField({
-      name: "webhookUrl", title: "URL do Webhook (BotConversa)",
-      type: "url",
-      description: "Ex: https://hook.botconversa.dev/webhook/abc123",
-      validation: r => r.required(),
-    }),
-    defineField({
-      name: "redirectAoEnviar", title: "Redirecionar após envio (opcional)",
+      name: "textoBotao", title: "Texto do botão de envio", group: "conteudo",
       type: "string",
-      description: "Deixe vazio para mostrar mensagem de sucesso na tela. Ex: /obrigado",
+      initialValue: "Quero ser contatado",
     }),
     defineField({
-      name: "mensagemSucesso", title: "Mensagem de sucesso",
+      name: "mensagemSucesso", title: "Mensagem de sucesso", group: "conteudo",
       type: "string",
       initialValue: "Recebemos seus dados! Entraremos em contato em breve.",
     }),
     defineField({
-      name: "textoBotao", title: "Texto do botão de envio",
-      type: "string",
-      initialValue: "Quero ser contatado",
-    }),
-
-    /* ── Imagem decorativa do header do modal ─────────── */
-    defineField({
       name: "imagemDestaque",
-      title: "Imagem do formulário (aparece ao lado do título)",
+      title: "Imagem do formulário (aparece ao lado do título)", group: "conteudo",
       type:  "image",
       options: { hotspot: true },
       description: "Aparece no canto superior direito do drawer. Sugestão: foto de um destino.",
     }),
 
+    /* ── Destino do envio (técnico) ────────────────────── */
+    defineField({
+      name: "webhookUrl", title: "URL do Webhook (BotConversa)", group: "envio",
+      type: "url",
+      description: "Ex: https://hook.botconversa.dev/webhook/abc123",
+      validation: r => r.required(),
+    }),
+    defineField({
+      name: "redirectAoEnviar", title: "Redirecionar após envio (opcional)", group: "envio",
+      type: "string",
+      description: "Deixe vazio para mostrar mensagem de sucesso na tela. Ex: /obrigado",
+    }),
+
     /* ── Campos do formulário ──────────────────────────── */
     defineField({
       name: "campos",
-      title: "Campos",
+      title: "Campos", group: "campos",
       type: "array",
       of: [
         defineArrayMember({
