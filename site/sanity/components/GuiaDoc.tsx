@@ -191,8 +191,8 @@ export function GuiaDoc() {
     >
       <div style={{ maxWidth: 680, margin: "0 auto" }}>
 
-        {/* card branco — igual aos painéis do ticket */}
-        <div style={{ background: "#fff", border: `1px solid ${BOXBD}`, borderRadius: 24, padding: "clamp(24px,4vw,38px)", boxShadow: "0 24px 60px -34px rgba(13,31,48,0.28)" }}>
+        {/* card branco — altura fixa (viewport) p/ os botões não pularem entre slides */}
+        <div style={{ background: "#fff", border: `1px solid ${BOXBD}`, borderRadius: 24, padding: "clamp(24px,4vw,38px)", boxShadow: "0 24px 60px -34px rgba(13,31,48,0.28)", height: "clamp(480px, calc(100vh - 230px), 640px)", display: "flex", flexDirection: "column" }}>
 
           {/* topo: kicker + contador */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
@@ -205,8 +205,8 @@ export function GuiaDoc() {
 
           <Dash />
 
-          {/* corpo */}
-          <div style={{ minHeight: 280, paddingTop: 18 }}>{s.body}</div>
+          {/* corpo — rola dentro do card se o slide for longo */}
+          <div style={{ flex: 1, overflowY: "auto", paddingTop: 18, marginRight: -6, paddingRight: 6 }}>{s.body}</div>
         </div>
 
         {/* navegação — pills navy + dot, como o BtnPrimary */}
