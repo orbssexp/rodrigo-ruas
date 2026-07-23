@@ -48,7 +48,6 @@ export const PACOTE_BY_SLUG_QUERY = groq`
     partida,
     vagas,
     tipo,
-    aereoIncluso,
     moeda,
     entrada,
     numParcelas,

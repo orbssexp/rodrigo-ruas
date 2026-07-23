@@ -65,7 +65,7 @@ function diffDays(ida?: string, volta?: string): number | null {
 /* ── linha da rota (ida ✈ volta) ─────────────────────── */
 function RouteLine({ dias }: { dias?: number | null }) {
   return (
-    <div className="flex-1 flex flex-col items-center gap-1.5 px-2">
+    <div className="w-full md:flex-1 flex flex-col items-center gap-1.5 px-2 py-1 md:py-0">
       <div className="flex items-center w-full">
         <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: AMBER }} />
         <div className="flex-1 border-t-2 border-dashed mx-1.5" style={{ borderColor: "#CBD5E1" }} />
@@ -75,7 +75,7 @@ function RouteLine({ dias }: { dias?: number | null }) {
         <div className="flex-1 border-t-2 border-dashed mx-1.5" style={{ borderColor: "#CBD5E1" }} />
         <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: AMBER }} />
       </div>
-      {dias && <p className="text-[15px] whitespace-nowrap" style={{ color: MUTED }}>{dias} dias de duração</p>}
+      {dias && <p className="text-[16px] whitespace-nowrap" style={{ color: MUTED }}>{dias} dias de duração</p>}
     </div>
   )
 }
@@ -122,17 +122,17 @@ export function PricingTicket(props: PricingTicketProps) {
           {/* card branco — rota */}
           <div className="rounded-[20px] bg-white px-6 py-6 md:px-8 md:py-7">
             {/* badge tagline */}
-            <div className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 mb-6"
+            <div data-cms="tagline" className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 mb-6"
                  style={{ borderColor: "rgba(13,31,48,0.18)" }}>
               <InfinityIcon size={16} weight="bold" style={{ color: NAVY }} />
               <span className="text-[15px]" style={{ color: BODY }}>{tag}</span>
             </div>
 
-            {/* rota */}
-            <div className="flex items-center gap-3">
+            {/* rota — vertical no mobile, horizontal no desktop */}
+            <div data-cms="rota" className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
               {/* origem */}
-              <div className="min-w-0">
-                <p className="text-[24px] md:text-[30px] font-black leading-tight" style={{ color: NAVY }}>
+              <div className="min-w-0 md:shrink-0">
+                <p className="text-[26px] md:text-[30px] font-black leading-tight" style={{ color: NAVY }}>
                   {cidadeIda}{codPartida && <span>, ({codPartida})</span>}
                 </p>
                 {dataIda && <p className="text-[16px] mt-1" style={{ color: MUTED }}>{fmtDate(dataIda)}</p>}
@@ -141,8 +141,8 @@ export function PricingTicket(props: PricingTicketProps) {
               <RouteLine dias={totalDias} />
 
               {/* destino */}
-              <div className="min-w-0 text-right">
-                <p className="text-[24px] md:text-[30px] font-black leading-tight" style={{ color: NAVY }}>
+              <div className="min-w-0 md:shrink-0 md:text-right">
+                <p className="text-[26px] md:text-[30px] font-black leading-tight" style={{ color: NAVY }}>
                   {destino}{codDestino && <span>, ({codDestino})</span>}
                 </p>
                 {dataVolta && <p className="text-[16px] mt-1" style={{ color: MUTED }}>{fmtDate(dataVolta)}</p>}
@@ -168,7 +168,7 @@ export function PricingTicket(props: PricingTicketProps) {
 
           {/* incluso — sobre o navy */}
           {incluso.length > 0 && (
-            <div className="px-2 md:px-1">
+            <div data-cms="incluso" className="px-2 md:px-1">
               <h3 className="text-[24px] md:text-[28px] font-bold !text-white mb-5">O que está incluso:</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3.5">
                 {incluso.map((item, i) => <InclusoItem key={i} text={item} />)}
@@ -190,9 +190,9 @@ export function PricingTicket(props: PricingTicketProps) {
             <p className="text-[24px] font-bold mb-4" style={{ color: NAVY }}>Investimento:</p>
 
             {/* preço */}
-            <div className="border-t pt-4" style={{ borderColor: "#F1F5F9" }}>
+            <div data-cms="investimento" className="border-t pt-4" style={{ borderColor: "#F1F5F9" }}>
               {entrada != null && (
-                <div className="flex items-center flex-wrap md:flex-nowrap gap-x-1.5 gap-y-2">
+                <div className="flex flex-col items-center gap-2 md:flex-row md:flex-nowrap md:items-center md:gap-x-1.5 md:gap-y-0">
                   <span className="flex items-baseline gap-1 whitespace-nowrap">
                     <span className="text-[15px] font-semibold" style={{ color: NAVY }}>{moeda}</span>
                     <span className="text-[31px] font-black leading-none" style={{ color: NAVY }}>{nf(entrada)}</span>
@@ -216,7 +216,7 @@ export function PricingTicket(props: PricingTicketProps) {
             </div>
 
             {/* termos */}
-            <div className="rounded-2xl border mt-5 overflow-hidden" style={{ borderColor: "#E9EEF3" }}>
+            <div data-cms="termos" className="rounded-2xl border mt-5 overflow-hidden" style={{ borderColor: "#E9EEF3" }}>
               <div className="flex items-center gap-2 px-4 py-3 border-b" style={{ borderColor: "#F1F5F9" }}>
                 <Info size={16} weight="bold" style={{ color: NAVY }} />
                 <p className="text-[15px] font-semibold underline" style={{ color: NAVY }}>Termos e condições do pacote</p>
@@ -252,7 +252,7 @@ export function PricingTicket(props: PricingTicketProps) {
             </div>
 
             {/* rodapé */}
-            <div className="flex flex-col items-center gap-2 mt-4">
+            <div data-cms="rodape" className="flex flex-col items-center gap-2 mt-4">
               <p className="text-[14px] flex items-center gap-2" style={{ color: MUTED }}>
                 <img src="/icons/phone.svg" alt="" width={15} height={15} /> {rodapeAtendimento}
               </p>

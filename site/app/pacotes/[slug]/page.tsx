@@ -22,7 +22,6 @@ interface Dia { numero: number; titulo: string; texto?: any[]; imagem?: any }
 interface PacoteData {
   _id: string; titulo: string; slug: string; badge?: string; heroImage?: any
   tipo?: string; periodo?: string; dias?: number; partida?: string; vagas?: number
-  aereoIncluso?: boolean
   moeda?: string; entrada?: number; numParcelas?: number; valorParcela?: number
   aeroportoPartida?: string; aeroportoDestino?: string; dataIda?: string; dataVolta?: string
   politicaCancelamento?: string; politicaReagendamento?: string
@@ -74,7 +73,7 @@ export default async function PacotePage({ params }: { params: Promise<{ slug: s
       <NavBar />
 
       {/* ══ HERO ═══════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex items-end overflow-hidden">
+      <section data-cms="hero" className="relative min-h-screen flex items-end overflow-hidden">
         <div className="absolute inset-0">
           {pacote.heroImage
             ? <img src={urlFor(pacote.heroImage).width(1920).height(1080).fit("crop").url()} alt={pacote.titulo} className="w-full h-full object-cover" />
@@ -313,7 +312,6 @@ export default async function PacotePage({ params }: { params: Promise<{ slug: s
               destino={pacote.titulo}
               codPartida={pacote.aeroportoPartida}
               codDestino={pacote.aeroportoDestino}
-              aereoIncluso={pacote.aereoIncluso}
               dataIda={pacote.dataIda}
               dataVolta={pacote.dataVolta}
               dias={pacote.dias}

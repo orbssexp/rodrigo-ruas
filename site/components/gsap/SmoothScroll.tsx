@@ -11,8 +11,12 @@ gsap.registerPlugin(ScrollTrigger)
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null)
   const pathname = usePathname()
+  /* Não roda o smooth-scroll dentro do Sanity Studio (/admin) — o Lenis
+     sequestra o wheel e quebra o scroll interno do Studio. */
+  const isStudio = pathname?.startsWith("/admin") ?? false
 
   useEffect(() => {
+    if (isStudio) return
     const lenis = new Lenis({
       duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -33,7 +37,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       lenis.destroy()
       lenisRef.current = null
     }
-  }, [])
+  }, [isStudio])
 
   /**
    * O Lenis é criado uma única vez e persiste entre navegações client-side.
