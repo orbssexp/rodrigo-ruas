@@ -1,186 +1,233 @@
-const S = ({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) => (
-  <span style={style}>{children}</span>
+"use client"
+
+/* Guia de uso do CMS — em slides, no MESMO vocabulário visual do ticket de
+   pricing do site: card branco arredondado, divisórias pontilhadas, sub-box
+   cinza dos "Termos", ícone "i" e botão pill navy + dot. */
+
+import { useEffect, useState } from "react"
+
+/* paleta do ticket */
+const NAVY   = "#0D1F30"
+const BODY   = "#3D5A6E"
+const MUTED  = "#7090A0"
+const DASH   = "#E2E8F0"
+const BOXBG  = "#F5F7F9"
+const BOXBD  = "#E9EEF3"
+const WARN   = "#A06020"
+const ON_FG  = "#FFFFFF"
+const FONT   = '"DM Sans", system-ui, -apple-system, sans-serif'
+
+/* linha pontilhada (igual às do ticket) */
+const Dash = () => <div style={{ borderTop: `1px dashed ${DASH}` }} />
+
+/* linha "● Nome — descrição" com pontilhado embaixo */
+const Row = ({ nome, children, last }: { nome: string; children: React.ReactNode; last?: boolean }) => (
+  <>
+    <div style={{ display: "flex", gap: 12, padding: "13px 2px", alignItems: "baseline" }}>
+      <span style={{ color: MUTED, fontSize: 12, lineHeight: 1.6 }}>●</span>
+      <span style={{ fontSize: 16, lineHeight: 1.5 }}>
+        <strong style={{ color: NAVY, fontWeight: 700 }}>{nome}</strong>
+        <span style={{ color: BODY }}>&nbsp;&nbsp;{children}</span>
+      </span>
+    </div>
+    {!last && <Dash />}
+  </>
 )
 
-const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <section style={{ marginBottom: 40 }}>
-    <h2 style={{ fontSize: 18, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase",
-                  color: "#f97316", marginBottom: 16, borderBottom: "1px solid rgba(255,255,255,0.1)",
-                  paddingBottom: 8 }}>
-      {title}
-    </h2>
-    {children}
-  </section>
-)
-
-const Field = ({ name, desc }: { name: string; desc: string }) => (
-  <div style={{ display: "flex", gap: 12, marginBottom: 10 }}>
-    <code style={{ background: "rgba(255,255,255,0.08)", borderRadius: 4, padding: "2px 8px",
-                   fontSize: 13, color: "#a5f3fc", whiteSpace: "nowrap", alignSelf: "flex-start",
-                   marginTop: 1 }}>
-      {name}
-    </code>
-    <span style={{ fontSize: 15, color: "rgba(255,255,255,0.75)", lineHeight: 1.55 }}>{desc}</span>
+/* sub-box cinza com ícone "i" — igual ao box "Termos e condições" */
+const InfoBox = ({ titulo, children }: { titulo: string; children: React.ReactNode }) => (
+  <div style={{ background: BOXBG, border: `1px solid ${BOXBD}`, borderRadius: 14, overflow: "hidden", marginTop: 22 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "12px 16px", borderBottom: `1px dashed ${DASH}` }}>
+      <span style={{ width: 18, height: 18, borderRadius: 999, border: `1.5px solid ${NAVY}`, color: NAVY, fontSize: 11, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", fontStyle: "italic" }}>i</span>
+      <span style={{ fontSize: 14, fontWeight: 700, color: NAVY }}>{titulo}</span>
+    </div>
+    <div style={{ padding: "13px 16px", fontSize: 15, color: BODY, lineHeight: 1.55 }}>{children}</div>
   </div>
 )
 
-const Note = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ background: "rgba(249,115,22,0.12)", border: "1px solid rgba(249,115,22,0.3)",
-                borderRadius: 8, padding: "12px 16px", fontSize: 14,
-                color: "rgba(255,255,255,0.8)", marginTop: 16, lineHeight: 1.6 }}>
-    <strong style={{ color: "#f97316" }}>Dica: </strong>{children}
-  </div>
+const Lead = ({ children }: { children: React.ReactNode }) => (
+  <p style={{ fontSize: 17, color: BODY, lineHeight: 1.55, margin: "0 0 6px" }}>{children}</p>
 )
+
+/* ── slides ─────────────────────────────────────────── */
+type Slide = { kicker: string; title: string; body: React.ReactNode }
+
+const SLIDES: Slide[] = [
+  {
+    kicker: "Comece aqui", title: "Como funciona",
+    body: (
+      <>
+        <Lead>Aqui você edita tudo que aparece no site da RR Viagens — sem precisar entender de código.</Lead>
+        <div style={{ marginTop: 12 }}>
+          <Row nome="1 · Escolha">o que editar no menu da esquerda: Pacotes, Homepage, Grupos ou Formulário.</Row>
+          <Row nome="2 · Preencha">os campos, organizados em abas no topo. A barra de progresso mostra quanto falta.</Row>
+          <Row nome="3 · Confira">os prints que vários campos trazem, mostrando onde aquilo aparece no site.</Row>
+          <Row nome="4 · Publique" last>no botão do canto inferior direito. Em poucos minutos entra no ar.</Row>
+        </div>
+      </>
+    ),
+  },
+  {
+    kicker: "Conteúdo", title: "Pacotes",
+    body: (
+      <>
+        <Lead>Cada pacote vira uma página no site. Para criar: <strong style={{ color: NAVY }}>Pacotes → o “+” no topo</strong>.</Lead>
+        <div style={{ marginTop: 6 }}>
+          <Row nome="Básico">Nome, foto principal, tipo e onde aparece na home. A imagem mostra a página ao vivo.</Row>
+          <Row nome="Rota & Datas">Aeroportos (da lista), datas de ida/volta e vagas. A duração é calculada sozinha.</Row>
+          <Row nome="Investimento">Moeda, entrada, nº de parcelas e valor. Ex.: US$ 2.300 + 9x US$ 445.</Row>
+          <Row nome="Termos">Seguro, cancelamento e reagendamento.</Row>
+          <Row nome="Conteúdo">Frase do topo, incluso/não incluso, roteiro, galeria e introdução.</Row>
+          <Row nome="SEO" last>Uma frase para o Google. Opcional.</Row>
+        </div>
+        <InfoBox titulo="Atalhos úteis">
+          Esconder sem apagar: <strong style={{ color: NAVY }}>Posição na homepage → “Não exibir”</strong>. Esgotar: <strong style={{ color: NAVY }}>Badge → Esgotado</strong>.
+        </InfoBox>
+      </>
+    ),
+  },
+  {
+    kicker: "Conteúdo", title: "Grupos de WhatsApp",
+    body: (
+      <>
+        <Lead>Os cards da seção “Comunidade” na home. Cada card é um grupo com vagas.</Lead>
+        <div style={{ marginTop: 6 }}>
+          <Row nome="Grupo">Nome, foto, destino e data de partida.</Row>
+          <Row nome="Vagas & Exibição" last>Membros atuais, máximo, status (aberto / últimas vagas / esgotado) e se aparece na home.</Row>
+        </div>
+        <InfoBox titulo="No dia a dia">
+          Atualize os <strong style={{ color: NAVY }}>Membros atuais</strong>. Ao lotar, mude o <strong style={{ color: NAVY }}>Status → Esgotado</strong> e o card se ajusta.
+        </InfoBox>
+      </>
+    ),
+  },
+  {
+    kicker: "Conteúdo", title: "Homepage",
+    body: (
+      <>
+        <Lead>Textos e imagens da página inicial (é uma página só). O primeiro campo mostra a home ao vivo.</Lead>
+        <div style={{ marginTop: 6 }}>
+          <Row nome="Hero">Topo da página: frase de cima, título grande, subtítulo e as fotos do carrossel.</Row>
+          <Row nome="Números & Processo">Os números (países, anos…) e os 3 passos de “como funciona”.</Row>
+          <Row nome="Seções">Títulos e descrições das três seções de pacotes.</Row>
+          <Row nome="Depoimento & CTA" last>Depoimento de cliente, chamada final e foto do Rodrigo.</Row>
+        </div>
+      </>
+    ),
+  },
+  {
+    kicker: "Conteúdo", title: "Formulário de contato",
+    body: (
+      <>
+        <Lead>O formulário que abre quando alguém clica em “Falar” ou “Quero este pacote”.</Lead>
+        <div style={{ marginTop: 6 }}>
+          <Row nome="Conteúdo">Título, descrição, texto do botão, mensagem de sucesso e imagem.</Row>
+          <Row nome="Campos">O que a pessoa preenche (nome, WhatsApp…). Destino e programa são automáticos.</Row>
+          <Row nome="Envio" last>O endereço que recebe os dados (webhook). Não altere sem o desenvolvedor.</Row>
+        </div>
+      </>
+    ),
+  },
+  {
+    kicker: "Ser achado", title: "Dicas de SEO",
+    body: (
+      <>
+        <Lead>Pequenos cuidados ajudam o site a aparecer no Google e a converter melhor.</Lead>
+        <div style={{ marginTop: 6 }}>
+          <Row nome="Título específico">“Egito — Cairo e Cruzeiro no Nilo” diz mais e atrai mais cliques que só “Egito”.</Row>
+          <Row nome="Descrição curta">Resume o pacote em 1 linha. Aparece nos cards e ajuda o Google.</Row>
+          <Row nome="Meta descrição">Frase convidativa com o destino — pode aparecer na busca do Google.</Row>
+          <Row nome="Conteúdo completo">Roteiro, incluso e introdução. Mais texto real e único = melhor posição.</Row>
+          <Row nome="Fotos de qualidade" last>Paisagem, nítidas e leves. Carregam rápido e vendem mais.</Row>
+        </div>
+        <InfoBox titulo="Já é automático">
+          O endereço da página (slug) é ajustado sozinho: minúsculo, sem acento e com “-” no lugar de espaços.
+        </InfoBox>
+      </>
+    ),
+  },
+  {
+    kicker: "Bom saber", title: "Boas práticas",
+    body: (
+      <>
+        <Lead>Um checklist rápido para manter o site sempre certinho.</Lead>
+        <div style={{ marginTop: 6 }}>
+          <Row nome="Publique sempre">Nada aparece no site até clicar em Publicar (um aviso lembra do tempo de propagação).</Row>
+          <Row nome="Revise antes">Use os prints “ao vivo” dos campos para conferir como ficou.</Row>
+          <Row nome="Mantenha atualizado">Vagas, status, datas e preços. Conteúdo velho gera atrito na venda.</Row>
+          <Row nome="Não mexa no técnico">Campos como o webhook (aba Envio) só com o desenvolvedor.</Row>
+          <Row nome="Atalhos" last>Ctrl+Z desfaz · três pontinhos (···) revertem · Ctrl+K busca.</Row>
+        </div>
+      </>
+    ),
+  },
+]
 
 export function GuiaDoc() {
+  const [i, setI] = useState(0)
+  const total = SLIDES.length
+  const go = (n: number) => setI((p) => Math.min(total - 1, Math.max(0, p + n)))
+  const s = SLIDES[i]
+
+  useEffect(() => {
+    const id = "guia-dm-sans"
+    if (document.getElementById(id)) return
+    const link = document.createElement("link")
+    link.id = id; link.rel = "stylesheet"
+    link.href = "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+    document.head.appendChild(link)
+  }, [])
+
+  const pill: React.CSSProperties = {
+    fontFamily: FONT, fontSize: 15, fontWeight: 700, padding: "12px 24px", borderRadius: 999,
+    cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 9, border: `1.5px solid ${NAVY}`,
+  }
+
   return (
-    <div style={{ padding: "48px 56px", maxWidth: 760, fontFamily: "system-ui, sans-serif",
-                  color: "rgba(255,255,255,0.9)", lineHeight: 1.6 }}>
+    <div
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === "ArrowRight") go(1); if (e.key === "ArrowLeft") go(-1) }}
+      style={{ background: "#FAFAF8", padding: "44px clamp(20px,5vw,64px)", fontFamily: FONT, color: NAVY, outline: "none", minHeight: "100%" }}
+    >
+      <div style={{ maxWidth: 680, margin: "0 auto" }}>
 
-      <div style={{ marginBottom: 48 }}>
-        <h1 style={{ fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 8 }}>
-          Guia de uso — RR Viagens CMS
-        </h1>
-        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)" }}>
-          Como gerenciar os conteúdos do site rrviagens.com.br
-        </p>
-      </div>
+        {/* card branco — igual aos painéis do ticket */}
+        <div style={{ background: "#fff", border: `1px solid ${BOXBD}`, borderRadius: 24, padding: "clamp(24px,4vw,38px)", boxShadow: "0 24px 60px -34px rgba(13,31,48,0.28)" }}>
 
-      {/* PACOTES */}
-      <Section title="Pacotes">
-        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", marginBottom: 20 }}>
-          Cada entrada em <strong>Pacotes</strong> vira uma página no site (ex: /pacotes/japao) e aparece
-          na lista de destinos. Para criar: clique em "Pacotes" no menu lateral → "Criar novo".
-        </p>
-        <Field name="Título"          desc="Nome do destino que aparece na lista e na página. Ex: Japão, Grécia + Turquia." />
-        <Field name="Slug"            desc="URL da página. Gerado automaticamente a partir do título. Só altere se souber o que está fazendo." />
-        <Field name="Tipo"            desc="Categoria do pacote: Grupo do Ruas (Rodrigo vai junto), Assinado By Ruas (curadoria sem Rodrigo) ou Grupo Brasileiro (grupo organizado com guia). Controla: (1) badge colorido na lista, (2) filtro por tipo na página de destinos, (3) quais pacotes aparecem no formulário de contato quando o lead escolhe o programa." />
-        <Field name="Badge"           desc="Status de disponibilidade: Vagas limitadas (aviso amarelo) ou Esgotado (pacote fica opaco e sem link)." />
-        <Field name="Imagem hero"     desc="Foto principal do destino. Use imagens em paisagem (16:9). Recomendado: mínimo 1600px de largura." />
-        <Field name="Período"         desc="Texto livre da data. Ex: Out 2026, Nov/Dez 2026, Qualquer data." />
-        <Field name="Duração (dias)"  desc="Número de dias da viagem. Aparece como '11 dias' na lista." />
-        <Field name="Partida"         desc="Cidade de saída. Ex: São Paulo. Aparece como 'Partida São Paulo'." />
-        <Field name="Descrição curta" desc="Frase de 1-2 linhas que resume o roteiro. Aparece na lista quando o destino está selecionado." />
-        <Field name="Descrição longa" desc="Texto completo da página do pacote (suporta formatação)." />
-        <Field name="Continentes"     desc="Usado para o filtro por região na lista. Selecione um ou mais." />
-        <Field name="Investimento"    desc="Moeda (US$ padrão), Entrada, Nº de parcelas e Valor da parcela. Ex: US$ 2.300 (Entrada) + 9x US$ 445. O total por pessoa (entrada + parcelas) é usado no filtro de preço máximo." />
-        <Field name="Rota"            desc="Aeroporto de partida e de destino (selecione da lista) + Data de ida e Data de volta (calendário). A duração em dias é calculada automaticamente pelas datas." />
-        <Field name="Seguro / Termos" desc="Seguro viagem (valor riscado + status 'Incluso'), política de cancelamento e taxa de reagendamento aparecem no ticket de investimento." />
-        <Field name="Tagline"         desc="Frase no topo do ticket. Padrão: 'Eternize esse momento da melhor maneira'." />
-        <Field name="Prioridade"      desc="Controla a visibilidade na homepage: Destaque (card grande no topo), Carrossel (rolagem lateral), Oculto (some da homepage mas continua na lista de destinos)." />
-        <Field name="Ordem"           desc="Número de ordenação. Menor número aparece primeiro na lista." />
-        <Note>
-          Para ocultar temporariamente um pacote sem apagar, mude <code style={{ color: "#a5f3fc" }}>Prioridade</code> para <strong>Oculto</strong>.
-          Para marcar como esgotado, use o campo <code style={{ color: "#a5f3fc" }}>Badge</code> → Esgotado.
-        </Note>
-      </Section>
+          {/* topo: kicker + contador */}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+            <span style={{ fontSize: 12.5, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: MUTED }}>{s.kicker}</span>
+            <span style={{ fontSize: 13, color: MUTED, fontVariantNumeric: "tabular-nums" }}>{i + 1} / {total}</span>
+          </div>
 
-      {/* FORMULÁRIO */}
-      <Section title="Formulário de Contato">
-        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", marginBottom: 20 }}>
-          O formulário funciona em <strong>3 etapas</strong> guiadas. O lead preenche os dados,
-          escolhe o programa e seleciona os destinos — tudo num único fluxo visual.
-        </p>
+          {/* título */}
+          <h1 style={{ margin: "0 0 18px", fontSize: 34, fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1.08, color: NAVY }}>{s.title}</h1>
 
-        {/* Etapas */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 24 }}>
-          {[
-            ["Etapa 1 — Dados de contato", "Campos configuráveis aqui no Sanity: nome, WhatsApp, e-mail e qualquer outro campo customizado."],
-            ["Etapa 2 — Programa",         "Seleção do tipo de viagem com card e descrição: Grupo do Ruas, Pacotes Assinados ou Grupos Brasileiros. Configurável no campo 'Programas' abaixo."],
-            ["Etapa 3 — Destino",          "Checkboxes carregados automaticamente do CMS com base no programa escolhido na etapa anterior. Nenhuma configuração necessária — basta cadastrar os pacotes com o Tipo correto."],
-          ].map(([step, desc]) => (
-            <div key={step} style={{ background: "rgba(255,255,255,0.04)", borderRadius: 8,
-                                     padding: "14px 18px", borderLeft: "3px solid rgba(249,115,22,0.4)" }}>
-              <strong style={{ fontSize: 14, display: "block", marginBottom: 4, color: "#f97316" }}>
-                {step}
-              </strong>
-              <span style={{ fontSize: 14, color: "rgba(255,255,255,0.65)" }}>{desc}</span>
-            </div>
-          ))}
+          <Dash />
+
+          {/* corpo */}
+          <div style={{ minHeight: 280, paddingTop: 18 }}>{s.body}</div>
         </div>
 
-        <Field name="Título"           desc="Texto de abertura exibido no topo do drawer. Ex: Quero conhecer os pacotes." />
-        <Field name="Descrição"        desc="Subtítulo abaixo do título. Ex: Preencha os dados e nossa equipe entra em contato em até 1 hora." />
-        <Field name="URL do Webhook"   desc="Endpoint BotConversa que recebe os dados do formulário. Obrigatório para o envio funcionar." />
-        <Field name="Mensagem sucesso" desc="Texto exibido após o envio bem-sucedido." />
-        <Field name="Campos"           desc="Campos da Etapa 1. Adicione apenas dados de contato (nome, telefone, e-mail). Não adicione campo de destino — isso é gerenciado automaticamente pelas Etapas 2 e 3." />
+        {/* navegação — pills navy + dot, como o BtnPrimary */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 22 }}>
+          <button onClick={() => go(-1)} disabled={i === 0}
+            style={{ ...pill, background: "transparent", color: NAVY, opacity: i === 0 ? 0.3 : 1, cursor: i === 0 ? "default" : "pointer" }}>
+            ← Anterior
+          </button>
 
-        <Note>
-          <strong>Payload enviado ao webhook (nomes fixos, não alterar):</strong>
-          {" "}<code style={{ color: "#a5f3fc" }}>nome</code>,{" "}
-          <code style={{ color: "#a5f3fc" }}>telefone</code>,{" "}
-          <code style={{ color: "#a5f3fc" }}>email</code>,{" "}
-          <code style={{ color: "#a5f3fc" }}>destino_programa</code> (ex: gruposDoRuas),{" "}
-          <code style={{ color: "#a5f3fc" }}>destino</code> (ex: Japão, Ushuaia).
-          Os campos de destino são preenchidos automaticamente pelo fluxo — não precisa configurar no Sanity.
-        </Note>
-        <Note>
-          Quando o lead acessa a página de um pacote e clica em "Quero este pacote", o formulário abre
-          com o <strong>programa pré-selecionado</strong> e o <strong>destino pré-marcado</strong>
-          {" "}automaticamente. O lead só precisa confirmar os dados de contato.
-        </Note>
-      </Section>
+          <div style={{ display: "flex", gap: 7 }}>
+            {SLIDES.map((sl, idx) => (
+              <button key={sl.title} onClick={() => setI(idx)} aria-label={sl.title}
+                style={{ width: idx === i ? 22 : 8, height: 8, borderRadius: 999, border: "none", padding: 0, cursor: "pointer", transition: "all .2s", background: idx === i ? NAVY : DASH }} />
+            ))}
+          </div>
 
-      {/* GRUPOS WHATSAPP */}
-      <Section title="Grupos WhatsApp">
-        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", marginBottom: 20 }}>
-          Aparecem na roda giratória da home ("Comunidade RR Viagens"). Cada card representa um grupo
-          ativo com vagas. Para criar: clique em "Grupos WhatsApp" → "Criar novo".
-        </p>
-        <Field name="Nome do grupo"      desc="Nome que aparece no card. Ex: Japão 2026, Turquia + Grécia." />
-        <Field name="Destino (slug)"     desc="Slug do destino para buscar a imagem de fundo. Ex: japao, turquia, grecia. Só necessário se não tiver foto própria." />
-        <Field name="Foto do grupo"      desc="Imagem opcional do grupo. Se não preencher, usa a imagem do destino pelo slug." />
-        <Field name="Data de partida"    desc="Texto livre. Ex: 08 Out 2026, Novembro 2026." />
-        <Field name="Membros atuais"     desc="Número de pessoas já confirmadas. Atualizar conforme entram novos membros." />
-        <Field name="Máximo de membros"  desc="Capacidade total do grupo. O card mostra '12/20 membros'." />
-        <Field name="Status"             desc="Aberto (aceita novos), Últimas vagas (alerta visual), Esgotado (sem botão de entrar)." />
-        <Field name="Ordem"              desc="Posição na roda giratória. Menor número aparece primeiro." />
-        <Field name="Exibir na home"     desc="Ativar/desativar o card sem apagar. Desative para grupos encerrados." />
-        <Note>
-          Atualize <code style={{ color: "#a5f3fc" }}>Membros atuais</code> regularmente.
-          Quando chegar no máximo, mude o <code style={{ color: "#a5f3fc" }}>Status</code> para
-          <strong> Esgotado</strong> para o card refletir isso automaticamente.
-        </Note>
-      </Section>
-
-      {/* HOMEPAGE */}
-      <Section title="Homepage">
-        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", marginBottom: 20 }}>
-          O documento <strong>Homepage</strong> controla os textos e configurações da página inicial.
-          É um documento único — não é possível criar múltiplas homepages.
-        </p>
-        <Field name="Título principal" desc="Texto grande do hero. Aparece sobre o carrossel de fotos." />
-        <Field name="Subtítulo"        desc="Texto secundário abaixo do título." />
-        <Note>
-          As fotos do carrossel do hero são gerenciadas diretamente no código e atualizam com as
-          imagens dos pacotes cadastrados.
-        </Note>
-      </Section>
-
-      {/* DICAS GERAIS */}
-      <Section title="Dicas gerais">
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          {[
-            ["Publicar alterações", "Após editar qualquer documento, clique no botão azul 'Publicar' no canto inferior direito. Alterações não publicadas ficam como rascunho e não aparecem no site."],
-            ["Imagens", "Arraste direto para o campo de imagem ou clique para selecionar. Formatos aceitos: JPG, PNG, WebP. O site converte automaticamente para WebP na entrega."],
-            ["Desfazer alterações", "Use Ctrl+Z para desfazer dentro do campo. Para reverter um documento publicado, clique nos três pontinhos (···) ao lado de 'Publicar' → 'Reverter para publicado'."],
-            ["Histórico de versões", "Clique no ícone de relógio no painel direito para ver e restaurar versões anteriores de qualquer documento."],
-            ["Busca rápida", "Use Ctrl+K para abrir a busca global e encontrar qualquer pacote ou documento pelo nome."],
-          ].map(([title, desc]) => (
-            <div key={title} style={{ background: "rgba(255,255,255,0.04)", borderRadius: 8,
-                                      padding: "14px 18px", borderLeft: "3px solid rgba(249,115,22,0.4)" }}>
-              <strong style={{ fontSize: 14, display: "block", marginBottom: 4, color: "#fff" }}>
-                {title}
-              </strong>
-              <span style={{ fontSize: 14, color: "rgba(255,255,255,0.65)" }}>{desc}</span>
-            </div>
-          ))}
+          <button onClick={() => (i < total - 1 ? go(1) : setI(0))} style={{ ...pill, background: NAVY, color: ON_FG }}>
+            {i < total - 1 ? "Próximo" : "Recomeçar"}
+            <span style={{ width: 7, height: 7, borderRadius: 999, background: ON_FG }} />
+          </button>
         </div>
-      </Section>
-
-      <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 24, marginTop: 8,
-                    fontSize: 13, color: "rgba(255,255,255,0.3)" }}>
-        RR Viagens — Dúvidas? Fale com o desenvolvedor.
       </div>
     </div>
   )
