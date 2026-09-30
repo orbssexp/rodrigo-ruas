@@ -7,7 +7,7 @@ import { useForm } from "./FormProvider"
 interface BtnFormProps {
   children: string
   pacote?:  string
-  tipo?:    string   /* gruposDoRuas | assinadoByRuas | gruposBrasileiros */
+  tipo?:    string   /* gruposDoRuas | assinadoByRuas */
   className?: string
   variant?: "primary" | "outline" | "inverted"
   stagger?: number

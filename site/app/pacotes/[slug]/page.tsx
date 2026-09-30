@@ -16,9 +16,9 @@ import { Clock, Airplane, Users, MapPin, Star, Check, X } from "@phosphor-icons/
 import { BtnForm } from "@/components/BtnForm"
 import { StatusBadge } from "@/components/StatusBadge"
 import { PricingTicket } from "@/components/PricingTicket"
+import { RoteiroDias, type Dia } from "@/components/RoteiroDias"
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-interface Dia { numero: number; titulo: string; texto?: any[]; imagem?: any }
 interface PacoteData {
   _id: string; titulo: string; slug: string; badge?: string; heroImage?: any
   tipo?: string; periodo?: string; dias?: number; partida?: string; vagas?: number
@@ -160,43 +160,7 @@ export default async function PacotePage({ params }: { params: Promise<{ slug: s
 
       {/* ══ ITINERÁRIO ═════════════════════════════════════ */}
       {pacote.itinerario && pacote.itinerario.length > 0 && (
-        <section className="py-20 border-t border-border">
-          <div className="wrap">
-            <ScrollReveal><p className="t-label mb-2">O roteiro</p></ScrollReveal>
-            <LineReveal as="h2" className="t-h2 text-foreground mb-16">Dia a dia</LineReveal>
-            <div className="flex flex-col gap-20">
-              {pacote.itinerario.map((dia, i) => {
-                /* fallback: usa a foto da galeria no mesmo índice (sem wrap circular) */
-                const galeria = pacote.galeria ?? []
-                const fotoFallback = galeria[i] ?? null
-                const foto = dia.imagem ?? fotoFallback
-
-                return (
-                <div key={i} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                  <ScrollReveal className={i % 2 === 1 ? "lg:order-2" : ""}>
-                    <p className="t-label mb-3">Dia {dia.numero}</p>
-                    <h3 className="t-h3 text-foreground mb-5">{dia.titulo}</h3>
-                    {dia.texto && <PortableText value={dia.texto} components={ptComponents} />}
-                  </ScrollReveal>
-                  <RevealImage direction={i % 2 === 0 ? "right" : "left"}
-                               className={`overflow-hidden group ${i % 2 === 1 ? "lg:order-1" : "lg:order-2"}`}
-                               data-cursor="expand" data-cursor-theme="dark">
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <div className="w-full h-full transition-transform duration-700 group-hover:scale-[1.04]">
-                        {foto ? (
-                          <img src={urlFor(foto).width(900).fit("crop").url()} alt={dia.titulo}
-                               className="w-full h-full object-cover" loading="lazy" />
-                        ) : (
-                          <ImagePlaceholder className="w-full h-full" iconSize={40} />
-                        )}
-                      </div>
-                    </div>
-                  </RevealImage>
-                </div>
-              )})}
-            </div>
-          </div>
-        </section>
+        <RoteiroDias dias={pacote.itinerario} galeria={pacote.galeria} />
       )}
 
       {/* ══ GALERIA ════════════════════════════════════════ */}

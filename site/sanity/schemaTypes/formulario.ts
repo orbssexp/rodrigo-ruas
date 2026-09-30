@@ -102,7 +102,6 @@ export const formulario = defineType({
               initialValue: [
                 { _key: "p1", valor: "gruposDoRuas",   titulo: "Grupos do Ruas",      descricao: "Viaje comigo para os melhores destinos do mundo" },
                 { _key: "p2", valor: "assinadoByRuas", titulo: "Pacotes Assinados",   descricao: "Curadoria validada por Rodrigo, executada com o padrão dele" },
-                { _key: "p3", valor: "gruposBrasileiros", titulo: "Grupos Brasileiros", descricao: "Grupos organizados para brasileiros pelo mundo" },
               ],
             }),
             defineField({ name: "label",       title: "Label",            type: "string", validation: r => r.required() }),

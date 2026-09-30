@@ -7,14 +7,12 @@ import {
   LineReveal, RevealImage, BtnPrimary, MagneticCursor,
   PackagesReel, TransitionLink,
 } from "@/components/gsap"
-import { FerrisWheel } from "@/components/gsap/FerrisWheel"
 import {
   Globe, Users, MapPin, Clock, Airplane, Star, Phone,
 } from "@phosphor-icons/react/dist/ssr"
 import { client } from "@/sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image"
-import { HOMEPAGE_QUERY, HOMEPAGE_CONTENT_QUERY, GRUPOS_WHATSAPP_QUERY } from "@/sanity/lib/queries"
-import type { GrupoCard } from "@/components/gsap/FerrisWheel"
+import { HOMEPAGE_QUERY, HOMEPAGE_CONTENT_QUERY } from "@/sanity/lib/queries"
 import { getUnsplash, UNSPLASH } from "@/lib/unsplash"
 import { ImageOverlay } from "@/components/ImageOverlay"
 import { PriceCalculator } from "@/app/pacotes/selecao/PriceCalculator"
@@ -54,20 +52,15 @@ export default async function Home() {
   /* Busca do Sanity — fallback silencioso se n�o configurado */
   let grupos:          any[]      = []
   let assinados:       any[]      = []
-  let gruposBr:        any[]      = []
   let cms:             any        = null
-  let gruposWhatsapp:  GrupoCard[] = []
   try {
-    const [homeData, cmsData, waData] = await Promise.all([
+    const [homeData, cmsData] = await Promise.all([
       client.fetch(HOMEPAGE_QUERY),
       client.fetch(HOMEPAGE_CONTENT_QUERY),
-      client.fetch(GRUPOS_WHATSAPP_QUERY),
     ])
     grupos         = homeData?.gruposDoRuas      ?? []
     assinados      = homeData?.assinadoByRuas    ?? []
-    gruposBr       = homeData?.gruposBrasileiros  ?? []
     cms            = cmsData ?? null
-    gruposWhatsapp = waData   ?? []
   } catch {}
 
   /* Textos com fallback */
@@ -95,33 +88,11 @@ export default async function Home() {
     sec: {
       grupos:    { label: cms?.secaoGruposLabel    ?? "Viaje comigo",       titulo: cms?.secaoGruposTitulo    ?? "Grupos do Ruas",                    desc: cms?.secaoGruposDesc    ?? "Viagens exclusivas onde Rodrigo está presente em cada passo do roteiro." },
       assinados: { label: cms?.secaoAssinadosLabel ?? "Curadoria validada", titulo: cms?.secaoAssinadosTitulo ?? "Pacotes Assinados by Ruas",          desc: cms?.secaoAssinadosDesc ?? "Roteiros desenhados e aprovados pelo Rodrigo. Executados com o padrão dele." },
-      gruposBr:  { label: cms?.secaoGruposBrLabel  ?? "Para o mundo",       titulo: cms?.secaoGruposBrTitulo  ?? "Grupos de Brasileiros no Mundo",     desc: cms?.secaoGruposBrDesc  ?? "Grupos organizados para brasileiros que querem viajar pelo mundo." },
     },
   }
 
-  /* Fallback — dados reais do site original (ativos em Jun/2026) */
-  const MOCK_GRUPOS = grupos.length > 0 ? grupos : [
-    { _id:"g1", titulo:"Japão",                  slug:"japao",    badge:"vagas",    heroImage:null, periodo:"Out 2026", dias:10, partida:"08/10", vagas:20, descricaoCurta:"Rodrigo guia pessoalmente. Kyoto, Tóquio, Osaka, Monte Fuji e roteiros que só ele conhece." },
-    { _id:"g2", titulo:"Japão + Coreia do Sul",  slug:"japao",    badge:null,       heroImage:null, periodo:"Out 2026", dias:14, partida:"12/10", vagas:20, descricaoCurta:"Dois países, uma viagem inesquecível. Kyoto, Tóquio, Hakone, Seul e Busan com Rodrigo Ruas." },
-    { _id:"g3", titulo:"Ushuaia",                slug:"ushuaia",  badge:"vagas",    heroImage:null, periodo:"Ago 2026", dias:6,  partida:"06/08", vagas:20, descricaoCurta:"O fim do mundo existe e Rodrigo vai te levar lá. Neve, glaciares e o Canal Beagle em agosto." },
-  ]
-
-  const MOCK_ASSINADOS = assinados.length > 0 ? assinados : [
-    { _id:"m1", titulo:"Grécia",    slug:"grecia",   badge:null,       heroImage:null, periodo:"Qualquer data", dias:11, partida:null, descricaoCurta:"Atenas, Mykonos e Santorini em pacote privativo. Sai quando quiser, sem grupo." },
-    { _id:"m2", titulo:"Croácia",   slug:"croacia",  badge:null,       heroImage:null, periodo:"Qualquer data", dias:9,  partida:null, descricaoCurta:"Dubrovnik, Split, Hvar e Plitvice. Roteiro curado por Rodrigo para casais e viagens solo." },
-    { _id:"m3", titulo:"Toscana",   slug:"toscana",  badge:null,       heroImage:null, periodo:"Qualquer data", dias:9,  partida:null, descricaoCurta:"Florença, Siena, Chianti e Val d'Orcia. A Itália que vai além do turismo de massa." },
-    { _id:"m4", titulo:"Turquia",   slug:"turquia",  badge:null,       heroImage:null, periodo:"Qualquer data", dias:7,  partida:null, descricaoCurta:"Istambul e Capadócia em roteiro privativo. 5 estrelas, no seu ritmo, na sua data." },
-  ]
-
-  const MOCK_GRUPOS_BR = gruposBr.length > 0 ? gruposBr : [
-    { _id:"b1", titulo:"Turquia e Grécia",       slug:"turquia",   badge:"vagas",    heroImage:null, periodo:"Jun 2026", dias:17, partida:"10/06" },
-    { _id:"b2", titulo:"China",                  slug:"china",     badge:null,       heroImage:null, periodo:"Jun 2026", dias:18, partida:"27/06" },
-    { _id:"b3", titulo:"Norte da Alemanha",      slug:"alemanha",  badge:null,       heroImage:null, periodo:"Set 2026", dias:15, partida:"04/09" },
-    { _id:"b4", titulo:"Sri Lanka e Maldivas",   slug:"srilanka",  badge:null,       heroImage:null, periodo:"Out 2026", dias:17, partida:"06/10" },
-    { _id:"b5", titulo:"China",                  slug:"china",     badge:null,       heroImage:null, periodo:"Out 2026", dias:18, partida:"17/10" },
-  ]
-
-  const destaqueGrupos    = MOCK_GRUPOS.find(p => p.prioridade === "destaque") ?? MOCK_GRUPOS[0] ?? null
+  /* Sem pacotes no CMS = seção não aparece (nada de pacote de exemplo) */
+  const destaqueGrupos    = grupos.find(p => p.prioridade === "destaque") ?? grupos[0] ?? null
   const destaqueAssinados = assinados[0] ?? null
 
   return (
@@ -144,6 +115,7 @@ export default async function Home() {
       </div>
 
       {/* �� SEÇÃO 1 — GRUPOS DO RUAS (premium) ������������ */}
+      {grupos.length > 0 && (
       <section id="pacotes" className="py-16">
         {/* Header da se��o */}
         <div className="wrap mb-10">
@@ -222,17 +194,19 @@ export default async function Home() {
         )}
 
         {/* Carrossel com o restante dos grupos */}
-        {MOCK_GRUPOS.length > 1 && (
+        {grupos.length > 1 && (
           <>
             <div className="wrap border-t border-border pt-10 pb-4 mt-16">
               <p className="text-[20px] font-medium text-foreground-subtle">mais grupos → scroll para explorar</p>
             </div>
-            <PackagesReel pacotes={MOCK_GRUPOS.slice(1)} />
+            <PackagesReel pacotes={grupos.slice(1)} />
           </>
         )}
       </section>
+      )}
 
       {/* �� SEÇÃO 2 — PACOTES ASSINADOS — grid de cards ���� */}
+      {assinados.length > 0 && (
       <section className="py-20 border-t-2 border-foreground">
           <div className="wrap">
             <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
@@ -246,7 +220,7 @@ export default async function Home() {
             </ScrollReveal>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {MOCK_ASSINADOS.map((p: any, i: number) => (
+              {assinados.map((p: any, i: number) => (
                 <ScrollReveal key={p._id} delay={i * 0.07}
                   className="group border border-border hover:border-foreground/25 transition-colors overflow-hidden"
                   data-cursor="expand" data-cursor-label="VER">
@@ -282,51 +256,7 @@ export default async function Home() {
             </div>
           </div>
         </section>
-
-      {/* �� SEÇÃO 3 — COMUNIDADE �������������������������� */}
-      <section className="border-t border-border bg-foreground text-primary-foreground py-24" data-cursor-theme="dark">
-        <div className="wrap">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-
-            {/* Esquerda — copy */}
-            <div>
-              <ScrollReveal>
-                <p className="t-label !text-primary-foreground/60 mb-6">Comunidade</p>
-              </ScrollReveal>
-              <LineReveal as="h2" className="t-h1 text-primary-foreground mb-8 leading-none">
-                Faça parte da nossa rede de viajantes
-              </LineReveal>
-              <ScrollReveal delay={0.1}>
-                <p className="t-body-lg !text-primary-foreground/80 mb-10">
-                  Mais de 1.500 brasileiros já viajaram com o Rodrigo Ruas.
-                  Quem vai uma vez, volta. Você vai fazer amigos para a vida.
-                </p>
-              </ScrollReveal>
-
-              {/* Stats */}
-              <ScrollReveal delay={0.15} className="flex flex-wrap gap-10 mb-12 border-t border-primary-foreground/15 pt-10">
-                {[
-                  { n: "1.500+", l: "viajantes na rede"    },
-                  { n: "40+",    l: "destinos em grupo"     },
-                  { n: "100%",   l: "grupos com guia BR"    },
-                ].map(({ n, l }) => (
-                  <div key={l}>
-                    <p className="text-[36px] font-bold text-primary-foreground leading-none">{n}</p>
-                    <p className="t-label !text-primary-foreground/60 mt-1">{l}</p>
-                  </div>
-                ))}
-              </ScrollReveal>
-
-            </div>
-
-            {/* Direita — roda gigante (desktop) + lista mobile */}
-            <div className="flex items-center justify-center pt-0 lg:pt-12">
-              <FerrisWheel grupos={gruposWhatsapp.length > 0 ? gruposWhatsapp : undefined} />
-            </div>
-
-          </div>
-        </div>
-      </section>
+      )}
 
       {/* �� FAIXA — QUEM É RODRIGO ������������������������� */}
       <section className="border-t-2 border-b-2 border-foreground py-16">
@@ -359,7 +289,9 @@ export default async function Home() {
       </section>
 
       {/* �� DESTINOS — cards por tipo ���������������������� */}
-       <DestinosSection grupos={MOCK_GRUPOS} assinados={MOCK_ASSINADOS} />
+       {(grupos.length > 0 || assinados.length > 0) && (
+         <DestinosSection grupos={grupos} assinados={assinados} />
+       )}
 
       {/* �� PULL QUOTE ������������������������������������� */}
       <section className="bg-background-section py-20 border-t border-b border-border">

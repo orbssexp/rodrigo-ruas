@@ -38,7 +38,7 @@ interface FormModalProps {
   isOpen:  boolean
   onClose: () => void
   pacote?: string   /* título do pacote — pré-marca destino no step 3 */
-  tipo?:   string   /* gruposDoRuas | assinadoByRuas | gruposBrasileiros */
+  tipo?:   string   /* gruposDoRuas | assinadoByRuas */
 }
 
 /* ── Constantes ─────────────────────────────────────────────── */
@@ -52,11 +52,6 @@ const PROGRAMAS: Programa[] = [
     valor:    "assinadoByRuas",
     titulo:   "Pacotes Assinados",
     descricao:"Roteiro e hotéis curados por Rodrigo. Privativo — sai quando você quiser.",
-  },
-  {
-    valor:    "gruposBrasileiros",
-    titulo:   "Grupos Brasileiros",
-    descricao:"Grupos com guia bilíngue. Datas fixas e preços acessíveis.",
   },
 ]
 
@@ -260,7 +255,6 @@ export function FormModal({ config, isOpen, onClose, pacote, tipo }: FormModalPr
   const programaLabel: Record<string, string> = {
     gruposDoRuas:      "Grupo do Ruas",
     assinadoByRuas:    "Pacotes Assinados",
-    gruposBrasileiros: "Grupos Brasileiros",
   }
 
   /* ── Render ──────────────────────────────────────────────────── */

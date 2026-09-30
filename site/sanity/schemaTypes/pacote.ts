@@ -3,6 +3,29 @@ import { AIRPORT_OPTIONS } from "../../lib/airports"
 import { areaPreview, HeroLiveField } from "../components/FieldPreview"
 import { DocProgress } from "../components/DocProgress"
 
+/* Rótulos amigáveis (usados no Studio: seleção em massa etc.) */
+export const TIPO_LABEL: Record<string, string> = {
+  gruposDoRuas:      "Grupos do Ruas",
+  assinadoByRuas:    "Assinados by Ruas",
+}
+export const CONTINENTE_LABEL: Record<string, string> = {
+  "africa":          "África",
+  "america-norte":   "América do Norte",
+  "america-sul":     "América do Sul",
+  "america-central": "América Central",
+  "asia":            "Ásia",
+  "europa":          "Europa",
+}
+
+/* Só as ordenações que ajudam a categorizar — o Sanity, sem isso, lista
+   "Sort by" para TODOS os campos e confunde. */
+export const PACOTE_SORTS = [
+  { name: "tipo",       title: "Tipo",                    by: [{ field: "tipo", direction: "asc" }, { field: "titulo", direction: "asc" }] },
+  { name: "data",       title: "Data de ida",             by: [{ field: "dataIda", direction: "asc" }, { field: "titulo", direction: "asc" }] },
+  { name: "nome",       title: "Nome (A–Z)",              by: [{ field: "titulo", direction: "asc" }] },
+  { name: "continente", title: "Continente",              by: [{ field: "continentes[0]", direction: "asc" }, { field: "titulo", direction: "asc" }] },
+] as const
+
 export const pacote = defineType({
   name:  "pacote",
   title: "Pacote",
@@ -65,7 +88,6 @@ export const pacote = defineType({
         list: [
           { title: "🏆 Grupos do Ruas — Rodrigo guia pessoalmente",       value: "gruposDoRuas"      },
           { title: "✍️ Pacotes Assinados by Ruas — curadoria do Rodrigo",  value: "assinadoByRuas"    },
-          { title: "🌎 Grupos de Brasileiros no Mundo — grupos organizados", value: "gruposBrasileiros" },
         ],
         layout: "radio",
       },
@@ -163,6 +185,7 @@ export const pacote = defineType({
         list: [
           { title: "US$ (Dólar)", value: "US$" },
           { title: "R$ (Real)",   value: "R$"  },
+          { title: "€ (Euro)",    value: "€"   },
         ],
         layout: "radio",
       },
@@ -280,11 +303,42 @@ export const pacote = defineType({
           title: "Dia",
           fields: [
             defineField({ name: "numero", title: "Dia nº", type: "number" }),
-            defineField({ name: "titulo", title: "Título do dia", type: "string" }),
             defineField({
-              name: "texto", title: "Descrição",
+              name: "titulo", title: "Título do dia", type: "string",
+              description: "Use → para deslocamentos (ex: Atenas → Mykonos).",
+            }),
+            defineField({
+              name: "resumo", title: "Resumo do dia", type: "text", rows: 2,
+              description: "Uma ou duas frases. Aparece grande, logo abaixo do título.",
+            }),
+            defineField({
+              name: "passeios", title: "Destaques do dia",
+              type: "array", of: [defineArrayMember({ type: "string" })],
+              description: "Só o nome do lugar ou atividade, até 4 palavras (ex: Mesquita Azul). Ideal: de 2 a 4 itens.",
+            }),
+            defineField({
+              name: "refeicoes", title: "Refeições incluídas", type: "string",
+              description: 'Ex: "Café da manhã e jantar". Deixe vazio se não houver.',
+            }),
+            defineField({
+              name: "hospedagem", title: "Hospedagem", type: "string",
+              description: 'Onde dorme nessa noite. Ex: "Lecce" ou "Cruzeiro pelo Nilo".',
+            }),
+            defineField({
+              name: "opcionais", title: "Passeios opcionais",
+              type: "array", of: [defineArrayMember({ type: "string" })],
+            }),
+            defineField({
+              name: "observacao", title: "Observação (opcional)", type: "string",
+              description: "Aviso curto, ex: traje exigido, horário do voo.",
+            }),
+            defineField({
+              name: "texto", title: "Descrição livre (formato antigo)",
               type: "array",
               of: [defineArrayMember({ type: "block" })],
+              description: "Só aparece no site se o Resumo estiver vazio.",
+              /* esconde o campo antigo quando não tem conteúdo */
+              hidden: ({ value }) => !value,
             }),
             defineField({
               name: "imagem", title: "Imagem do dia (opcional)",
@@ -311,6 +365,8 @@ export const pacote = defineType({
       type: "text", rows: 2,
     }),
   ],
+
+  orderings: PACOTE_SORTS.map(({ name, title, by }) => ({ name, title, by: by.map((b) => ({ ...b })) })),
 
   preview: {
     select: { title: "titulo", subtitle: "periodo", media: "heroImage" },

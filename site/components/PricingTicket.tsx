@@ -1,5 +1,6 @@
 "use client"
 
+import { useLayoutEffect, useRef, useState } from "react"
 import { BtnForm } from "@/components/BtnForm"
 import { Airplane, Info, Infinity as InfinityIcon, Plus } from "@phosphor-icons/react"
 import { airportCity } from "@/lib/airports"
@@ -18,7 +19,7 @@ interface PricingTicketProps {
   vagas?:                 number
   aereoIncluso?:          boolean  // false → mostra "aéreo por conta do viajante"
   /* investimento */
-  moeda?:                 string   // "US$" | "R$"
+  moeda?:                 string   // "US$" | "R$" | "€"
   entrada?:               number
   numParcelas?:           number
   valorParcela?:          number
@@ -63,7 +64,24 @@ function diffDays(ida?: string, volta?: string): number | null {
 }
 
 /* ── linha da rota (ida ✈ volta) ─────────────────────── */
-function RouteLine({ dias }: { dias?: number | null }) {
+function RouteLine({ dias, vertical }: { dias?: number | null; vertical?: boolean }) {
+  /* empilhada: origem / ícone / destino — linha tracejada vertical + duração ao lado */
+  if (vertical) {
+    return (
+      <div className="flex flex-col items-center gap-2 py-2">
+        <div className="flex flex-col items-center w-9 shrink-0">
+          <div className="w-2.5 h-2.5 rounded-full" style={{ background: AMBER }} />
+          <div className="h-4 border-l-2 border-dashed my-1" style={{ borderColor: "#CBD5E1" }} />
+          <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: NAVY }}>
+            <Airplane size={16} weight="fill" className="text-white rotate-90" />
+          </div>
+          <div className="h-4 border-l-2 border-dashed my-1" style={{ borderColor: "#CBD5E1" }} />
+          <div className="w-2.5 h-2.5 rounded-full" style={{ background: AMBER }} />
+        </div>
+        {dias && <p className="text-[16px]" style={{ color: MUTED }}>{dias} dias de duração</p>}
+      </div>
+    )
+  }
   return (
     <div className="w-full md:flex-1 flex flex-col items-center gap-1.5 px-2 py-1 md:py-0">
       <div className="flex items-center w-full">
@@ -112,6 +130,22 @@ export function PricingTicket(props: PricingTicketProps) {
   const tag          = tagline?.trim() || "Eternize esse momento da melhor maneira"
   const seguroIncluso = /inclu/i.test(seguroStatus) && !/n[ãa]o/i.test(seguroStatus)
 
+  /* rota em linha só se origem + linha mínima + destino couberem sem quebrar;
+     senão empilha (origem / ícone / destino). Começa empilhada: é o caso seguro. */
+  const rotaRef   = useRef<HTMLDivElement>(null)
+  const medidaRef = useRef<HTMLDivElement>(null)
+  const [empilhar, setEmpilhar] = useState(true)
+  useLayoutEffect(() => {
+    const rota = rotaRef.current, medida = medidaRef.current
+    if (!rota || !medida) return
+    const checar = () => setEmpilhar(medida.offsetWidth > rota.clientWidth)
+    checar()
+    const ro = new ResizeObserver(checar)
+    ro.observe(rota)
+    document.fonts?.ready.then(checar)   /* a fonte muda a largura do texto */
+    return () => ro.disconnect()
+  }, [cidadeIda, destino, codPartida, codDestino])
+
   return (
     <div className="rounded-[32px] p-4 md:p-5 shadow-2xl" style={{ background: NAVY }} data-cursor-theme="dark">
       <div className="flex flex-col md:flex-row md:items-stretch gap-4 md:gap-0">
@@ -121,28 +155,39 @@ export function PricingTicket(props: PricingTicketProps) {
 
           {/* card branco — rota */}
           <div className="rounded-[20px] bg-white px-6 py-6 md:px-8 md:py-7">
-            {/* badge tagline */}
-            <div data-cms="tagline" className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 mb-6"
-                 style={{ borderColor: "rgba(13,31,48,0.18)" }}>
-              <InfinityIcon size={16} weight="bold" style={{ color: NAVY }} />
-              <span className="text-[15px]" style={{ color: BODY }}>{tag}</span>
+            {/* badge tagline (centralizada junto com a rota empilhada) */}
+            <div className={empilhar ? "flex justify-center" : ""}>
+              <div data-cms="tagline" className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 mb-6"
+                   style={{ borderColor: "rgba(13,31,48,0.18)" }}>
+                <InfinityIcon size={16} weight="bold" style={{ color: NAVY }} />
+                <span className="text-[15px]" style={{ color: BODY }}>{tag}</span>
+              </div>
             </div>
 
-            {/* rota — vertical no mobile, horizontal no desktop */}
-            <div data-cms="rota" className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
+            {/* rota — em linha quando cabe; senão empilha origem / ícone / destino */}
+            <div ref={rotaRef} data-cms="rota"
+                 className={`relative flex ${empilhar ? "flex-col items-center text-center gap-1" : "flex-row items-center gap-3"}`}>
+              {/* régua invisível: largura natural da rota em uma linha só */}
+              <div ref={medidaRef} aria-hidden
+                   className="absolute left-0 top-0 invisible pointer-events-none flex items-center gap-3 whitespace-nowrap w-max">
+                <span className="text-[26px] md:text-[30px] font-black">{cidadeIda}{codPartida && `, (${codPartida})`}</span>
+                <span className="block w-[140px]" />
+                <span className="text-[26px] md:text-[30px] font-black">{destino}{codDestino && `, (${codDestino})`}</span>
+              </div>
+
               {/* origem */}
-              <div className="min-w-0 md:shrink-0">
-                <p className="text-[26px] md:text-[30px] font-black leading-tight" style={{ color: NAVY }}>
+              <div className={empilhar ? "min-w-0" : "shrink-0"}>
+                <p className="text-[26px] md:text-[30px] font-black leading-tight text-balance" style={{ color: NAVY }}>
                   {cidadeIda}{codPartida && <span>, ({codPartida})</span>}
                 </p>
                 {dataIda && <p className="text-[16px] mt-1" style={{ color: MUTED }}>{fmtDate(dataIda)}</p>}
               </div>
 
-              <RouteLine dias={totalDias} />
+              <RouteLine dias={totalDias} vertical={empilhar} />
 
               {/* destino */}
-              <div className="min-w-0 md:shrink-0 md:text-right">
-                <p className="text-[26px] md:text-[30px] font-black leading-tight" style={{ color: NAVY }}>
+              <div className={empilhar ? "min-w-0" : "shrink-0 text-right"}>
+                <p className="text-[26px] md:text-[30px] font-black leading-tight text-balance" style={{ color: NAVY }}>
                   {destino}{codDestino && <span>, ({codDestino})</span>}
                 </p>
                 {dataVolta && <p className="text-[16px] mt-1" style={{ color: MUTED }}>{fmtDate(dataVolta)}</p>}

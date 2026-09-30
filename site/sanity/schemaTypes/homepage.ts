@@ -139,12 +139,6 @@ export const homepage = defineType({
       name: "secaoAssinadosDesc",   title: "Pacotes Assinados — descrição", type: "text", rows: 2, group: "secoes",
       initialValue: "Roteiros desenhados, curados e aprovados pelo Rodrigo. Executados com o padrão de qualidade da RR Viagens.",
     }),
-    defineField({ name: "secaoGruposBrLabel",  title: "Grupos Brasileiros — label",  type: "string", group: "secoes", initialValue: "Para o mundo" }),
-    defineField({ name: "secaoGruposBrTitulo", title: "Grupos Brasileiros — título", type: "string", group: "secoes", initialValue: "Grupos de Brasileiros no Mundo" }),
-    defineField({
-      name: "secaoGruposBrDesc",   title: "Grupos Brasileiros — descrição", type: "text", rows: 2, group: "secoes",
-      initialValue: "Grupos organizados para brasileiros que querem viajar com outros compatriotas para os melhores destinos.",
-    }),
 
     /* ── DEPOIMENTO & CTA ─────────────────────────── */
     defineField({

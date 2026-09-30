@@ -30,8 +30,6 @@ export const HOMEPAGE_QUERY = groq`
     "assinadoByRuas": *[_type == "pacote" && tipo == "assinadoByRuas" && prioridade != "oculto"]
       | order(ordem asc) { ${PACOTE_CARD_FIELDS} },
 
-    "gruposBrasileiros": *[_type == "pacote" && tipo == "gruposBrasileiros" && prioridade != "oculto"]
-      | order(ordem asc) { ${PACOTE_CARD_FIELDS} },
   }
 `
 
@@ -69,6 +67,12 @@ export const PACOTE_BY_SLUG_QUERY = groq`
     itinerario[] {
       numero,
       titulo,
+      resumo,
+      passeios,
+      refeicoes,
+      hospedagem,
+      opcionais,
+      observacao,
       texto,
       imagem,
     },
@@ -89,7 +93,6 @@ export const HOMEPAGE_CONTENT_QUERY = groq`
     ctaTitulo, ctaSubtitulo,
     secaoGruposLabel, secaoGruposTitulo, secaoGruposDesc,
     secaoAssinadosLabel, secaoAssinadosTitulo, secaoAssinadosDesc,
-    secaoGruposBrLabel, secaoGruposBrTitulo, secaoGruposBrDesc,
     "heroSlides": heroSlides[] {
       "src": imagem.asset->url + "?w=1920&fit=crop&fm=webp&q=80",
       alt,
@@ -108,18 +111,27 @@ export const FORMULARIO_QUERY = groq`
   }
 `
 
-/* ── Grupos WhatsApp (FerrisWheel da home) ───────────────── */
-export const GRUPOS_WHATSAPP_QUERY = groq`
-  *[_type == "grupoWhatsapp" && ativo == true] | order(ordem asc) {
-    _id,
-    nome,
-    destino,
-    heroImage,
-    partida,
-    membros,
-    maxMembros,
-    status,
+/* ── Viagens realizadas (galeria) ────────────────────────── */
+export const VIAGENS_REALIZADAS_QUERY = groq`
+  *[_type == "viagemRealizada" && defined(slug.current) && defined(capa)] | order(data desc, titulo asc) {
+    _id, titulo, local, data, capa,
+    "slug": slug.current,
+    "totalFotos": count(fotos),
   }
+`
+
+export const VIAGEM_REALIZADA_BY_SLUG_QUERY = groq`
+  *[_type == "viagemRealizada" && slug.current == $slug][0] {
+    _id, titulo, local, data, capa, resumo,
+    "slug": slug.current,
+    fotos[] { _key, legenda, asset, hotspot, crop, "dim": asset->metadata.dimensions { width, height } },
+    "outras": *[_type == "viagemRealizada" && slug.current != $slug && defined(slug.current) && defined(capa)]
+      | order(data desc) [0...3] { _id, titulo, local, data, capa, "slug": slug.current },
+  }
+`
+
+export const VIAGENS_SLUGS_QUERY = groq`
+  *[_type == "viagemRealizada" && defined(slug.current)] { "slug": slug.current }
 `
 
 /* ── Slugs para generateStaticParams ─────────────────────── */

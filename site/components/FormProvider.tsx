@@ -52,7 +52,6 @@ export function FormProvider({ children, formConfig }: FormProviderProps) {
         programas: [
           { valor: "gruposDoRuas",      titulo: "Grupos do Ruas",      descricao: "Viaje comigo — curadoria e guia exclusivo do Rodrigo" },
           { valor: "assinadoByRuas",    titulo: "Pacotes Assinados",   descricao: "Roteiros criados e validados por Rodrigo" },
-          { valor: "gruposBrasileiros", titulo: "Grupos Brasileiros",  descricao: "Grupos para brasileiros nos melhores destinos" },
         ],
       },
     ],

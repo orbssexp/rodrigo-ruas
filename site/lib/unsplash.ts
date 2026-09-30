@@ -52,12 +52,10 @@ const ALIASES: Record<string, string> = {
   "japaocoreia":       "japao",
   "japaoecoreiadosul": "japao",
   "turquiaegrecia":    "turquia",
-  "turquiagreciagbm":  "turquia",
   "alemanhanorte":     "alemanha",
   "srilankaemaldivas": "srilanka",
   "srilankamaldivas":  "srilanka",
   "chinaoutubro":      "china",
-  "chinagbm":          "china",
   "chinaout":          "china",
   "ushuaiaago":        "ushuaia",
 }

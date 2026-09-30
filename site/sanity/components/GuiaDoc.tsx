@@ -59,7 +59,7 @@ const SLIDES: Slide[] = [
       <>
         <Lead>Aqui você edita tudo que aparece no site da RR Viagens — sem precisar entender de código.</Lead>
         <div style={{ marginTop: 12 }}>
-          <Row nome="1 · Escolha">o que editar no menu da esquerda: Pacotes, Homepage, Grupos ou Formulário.</Row>
+          <Row nome="1 · Escolha">o que editar no menu da esquerda: Pacotes, Viagens realizadas, Homepage ou Formulário.</Row>
           <Row nome="2 · Preencha">os campos, organizados em abas no topo. A barra de progresso mostra quanto falta.</Row>
           <Row nome="3 · Confira">os prints que vários campos trazem, mostrando onde aquilo aparece no site.</Row>
           <Row nome="4 · Publique" last>no botão do canto inferior direito. Em poucos minutos entra no ar.</Row>
@@ -81,22 +81,24 @@ const SLIDES: Slide[] = [
           <Row nome="SEO" last>Uma frase para o Google. Opcional.</Row>
         </div>
         <InfoBox titulo="Atalhos úteis">
-          Esconder sem apagar: <strong style={{ color: NAVY }}>Posição na homepage → “Não exibir”</strong>. Esgotar: <strong style={{ color: NAVY }}>Badge → Esgotado</strong>.
+          Esconder sem apagar: <strong style={{ color: NAVY }}>Posição na homepage → “Não exibir”</strong>. Esgotar: <strong style={{ color: NAVY }}>Badge → Esgotado</strong>. Publicar ou excluir vários de uma vez: <strong style={{ color: NAVY }}>Pacotes → “⋯” → Selecionar vários</strong>.
         </InfoBox>
       </>
     ),
   },
   {
-    kicker: "Conteúdo", title: "Grupos de WhatsApp",
+    kicker: "Conteúdo", title: "Viagens realizadas",
     body: (
       <>
-        <Lead>Os cards da seção “Comunidade” na home. Cada card é um grupo com vagas.</Lead>
+        <Lead>A galeria de viagens que já aconteceram (menu <strong style={{ color: NAVY }}>Galeria</strong> do site). Cada viagem vira uma página com as fotos.</Lead>
         <div style={{ marginTop: 6 }}>
-          <Row nome="Grupo">Nome, foto, destino e data de partida.</Row>
-          <Row nome="Vagas & Exibição" last>Membros atuais, máximo, status (aberto / últimas vagas / esgotado) e se aparece na home.</Row>
+          <Row nome="Destino e cidades">O nome grande e a linha menor embaixo (ex: Japão · Kyoto e Tóquio).</Row>
+          <Row nome="Quando foi">A data de partida. No site aparece só mês e ano.</Row>
+          <Row nome="Foto de capa">A foto grande da galeria. Prefira horizontal.</Row>
+          <Row nome="Fotos" last>Arraste várias de uma vez. A ordem no CMS é a ordem no site.</Row>
         </div>
-        <InfoBox titulo="No dia a dia">
-          Atualize os <strong style={{ color: NAVY }}>Membros atuais</strong>. Ao lotar, mude o <strong style={{ color: NAVY }}>Status → Esgotado</strong> e o card se ajusta.
+        <InfoBox titulo="Dica">
+          Clique em <strong style={{ color: NAVY }}>Generate</strong> no Slug depois de digitar o destino. Sem capa e slug a viagem não aparece no site.
         </InfoBox>
       </>
     ),
@@ -109,7 +111,7 @@ const SLIDES: Slide[] = [
         <div style={{ marginTop: 6 }}>
           <Row nome="Hero">Topo da página: frase de cima, título grande, subtítulo e as fotos do carrossel.</Row>
           <Row nome="Números & Processo">Os números (países, anos…) e os 3 passos de “como funciona”.</Row>
-          <Row nome="Seções">Títulos e descrições das três seções de pacotes.</Row>
+          <Row nome="Seções">Títulos e descrições das seções de pacotes.</Row>
           <Row nome="Depoimento & CTA" last>Depoimento de cliente, chamada final e foto do Rodrigo.</Row>
         </div>
       </>

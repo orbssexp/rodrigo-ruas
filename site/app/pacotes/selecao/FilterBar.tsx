@@ -16,7 +16,6 @@ const TIPOS = [
   { label: "Todos os tipos",    value: ""                  },
   { label: "Grupo do Ruas",     value: "gruposDoRuas"      },
   { label: "Pacotes Assinados", value: "assinadoByRuas"    },
-  { label: "Grupos Brasileiros",value: "gruposBrasileiros" },
 ]
 
 const chipBase = `px-5 py-2.5 rounded-full text-[20px] font-semibold uppercase tracking-[0.1em]

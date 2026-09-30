@@ -17,12 +17,6 @@ const TIPO_CONFIG: Record<string, { label: string; bg: string; text: string; des
     text:  "#0A3D5C",
     desc:  "Curadoria feita por Rodrigo — hotéis, roteiro e experiências — mas ele não vai junto. Privativo, sai quando você quiser.",
   },
-  gruposBrasileiros: {
-    label: "Grupo Brasileiro",
-    bg:    "#E8FFF2",
-    text:  "#0A4A2A",
-    desc:  "Grupo organizado com guia bilíngue (PT/ES). Rodrigo não vai junto. Datas fixas, preços acessíveis.",
-  },
 }
 
 export function TipoBadge({ tipo }: { tipo: string }) {

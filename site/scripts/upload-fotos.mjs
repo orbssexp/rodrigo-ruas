@@ -23,20 +23,16 @@ const BASE = "D:/Donwloads/APPS/rodrigo-ruas/imgs"
 const HERO_MAP = {
   "japao":   ["pacote-japao-out2026"],
   "coreia":  ["pacote-japao-coreia-out2026"],
-  "china":   ["pacote-china-gbm-jun", "pacote-china-gbm-out"],
-  "german":  ["pacote-alemanha-norte-gbm"],
   "grecia":  ["pacote-grecia-assinado"],
-  "turquia": ["pacote-turquia-assinado", "pacote-turquiagrecia-gbm"],
+  "turquia": ["pacote-turquia-assinado"],
 }
 
 /* Mapa: pasta → IDs dos pacotes que recebem a galeria */
 const GALERIA_MAP = {
   "japao":   ["pacote-japao-out2026", "pacote-japao-coreia-out2026"],
   "coreia":  ["pacote-japao-coreia-out2026"],
-  "china":   ["pacote-china-gbm-jun", "pacote-china-gbm-out"],
-  "german":  ["pacote-alemanha-norte-gbm"],
   "grecia":  ["pacote-grecia-assinado"],
-  "turquia": ["pacote-turquia-assinado", "pacote-turquiagrecia-gbm"],
+  "turquia": ["pacote-turquia-assinado"],
 }
 
 const VALID_EXT = [".jpg", ".jpeg", ".png", ".avif", ".jfif", ".webp"]

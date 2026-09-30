@@ -77,7 +77,7 @@ export function NavBar() {
         <ul className="hidden md:flex items-center gap-10 list-none">
           <li><DestinosModal /></li>
           {[
-            { label: "Grupos", href: "/pacotes/selecao?tipo=gruposBrasileiros" },
+            { label: "Galeria", href: "/viagens-realizadas" },
             { label: "Sobre",  href: "/sobre"           },
             { label: "Contato", href: "/contato"        },
           ].map(({ label, href }) => {

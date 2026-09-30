@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { client } from "@/sanity/lib/client"
 import { groq } from "next-sanity"
 
-const TIPOS_VALIDOS = new Set(["all", "gruposDoRuas", "assinadoByRuas", "gruposBrasileiros"])
+const TIPOS_VALIDOS = new Set(["all", "gruposDoRuas", "assinadoByRuas"])
 
 /* Retorna todos os pacotes de um tipo específico, incluindo esgotados */
 const QUERY = groq`
