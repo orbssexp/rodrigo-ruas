@@ -1,0 +1,125 @@
+[
+  {
+    "slug": "egito",
+    "titulo": "Egito",
+    "local": "Cairo, Luxor e o Nilo",
+    "fotos": [
+      {
+        "arquivo": "imgs/galeria/egito/00.jpg",
+        "legenda": "Voo de balão sobre Luxor",
+        "hotspot": null
+      },
+      {
+        "arquivo": "imgs/galeria/egito/01.png",
+        "legenda": "Com o grupo nas Pirâmides de Gizé",
+        "hotspot": null
+      },
+      {
+        "arquivo": "imgs/galeria/egito/02.jpg",
+        "legenda": "Pirâmides de Gizé",
+        "hotspot": null
+      },
+      {
+        "arquivo": "imgs/galeria/egito/03.jpg",
+        "legenda": "Templo de Hatshepsut, em Luxor",
+        "hotspot": null
+      },
+      {
+        "arquivo": "imgs/galeria/egito/04.png",
+        "legenda": "Grande Museu Egípcio",
+        "hotspot": null
+      },
+      {
+        "arquivo": "imgs/galeria/egito/05.png",
+        "legenda": "Grupo nas Pirâmides de Gizé",
+        "hotspot": null
+      },
+      {
+        "arquivo": "imgs/galeria/egito/06.png",
+        "legenda": "Grupo na Grande Pirâmide",
+        "hotspot": null
+      },
+      {
+        "arquivo": "imgs/galeria/egito/07.png",
+        "legenda": "Noite a caráter no cruzeiro pelo Nilo",
+        "hotspot": null
+      }
+    ]
+  },
+  {
+    "slug": "grecia",
+    "titulo": "Grécia",
+    "local": "Atenas e ilhas gregas",
+    "fotos": [
+      {
+        "arquivo": "imgs/galeria/grecia/00.jpeg",
+        "legenda": "Com o grupo nas ilhas gregas",
+        "hotspot": null
+      },
+      {
+        "arquivo": "imgs/galeria/grecia/01.jpeg",
+        "legenda": null,
+        "hotspot": null
+      },
+      {
+        "arquivo": "imgs/galeria/grecia/02.jpeg",
+        "legenda": "Templo de Hefesto, em Atenas",
+        "hotspot": null
+      },
+      {
+        "arquivo": "imgs/galeria/grecia/03.jpg",
+        "legenda": "Pôr do sol com o grupo",
+        "hotspot": null
+      },
+      {
+        "arquivo": "imgs/galeria/grecia/04.jpg",
+        "legenda": "Grupo no porto",
+        "hotspot": null
+      }
+    ]
+  },
+  {
+    "slug": "turquia",
+    "titulo": "Turquia",
+    "local": "Istambul",
+    "fotos": [
+      {
+        "arquivo": "imgs/galeria/turquia/00.jpeg",
+        "legenda": "Com o grupo no Palácio de Topkapi",
+        "hotspot": {
+          "x": 0.5,
+          "y": 0.72,
+          "width": 0.9,
+          "height": 0.45
+        }
+      },
+      {
+        "arquivo": "imgs/galeria/turquia/01.jpeg",
+        "legenda": "Mesquita de Ortaköy, às margens do Bósforo",
+        "hotspot": null
+      }
+    ]
+  },
+  {
+    "slug": "africa-do-sul",
+    "titulo": "África do Sul",
+    "local": "Kapama e Stellenbosch",
+    "fotos": [
+      {
+        "arquivo": "imgs/galeria/africa-do-sul/00.jpg",
+        "legenda": "Safári no Kapama",
+        "hotspot": {
+          "x": 0.45,
+          "y": 0.42,
+          "width": 0.8,
+          "height": 0.6
+        }
+      },
+      {
+        "arquivo": "imgs/galeria/africa-do-sul/01.jpg",
+        "legenda": "Vinícolas de Stellenbosch",
+        "hotspot": null
+      }
+    ]
+  }
+]

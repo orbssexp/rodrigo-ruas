@@ -1,0 +1,1900 @@
+[
+  {
+    "tipo": "assinadoByRuas",
+    "prioridade": "carrossel",
+    "periodo": "Saída o ano todo",
+    "partida": "Você escolhe a data",
+    "seguroStatus": "Não incluso",
+    "seguroValor": "",
+    "slug": "turquia-com-capadocia",
+    "titulo": "Turquia com Capadócia",
+    "intro": [
+      "A Turquia é o encontro perfeito entre Oriente e Ocidente. Istambul encanta com sua história milenar, mesquitas imponentes, palácios e bazares vibrantes, onde culturas se cruzam a cada esquina. Já a Capadócia surpreende com paisagens únicas, formações rochosas surreais e o espetáculo dos balões ao amanhecer. Um destino que une espiritualidade, cultura, sabores marcantes e experiências inesquecíveis."
+    ],
+    "itinerario": [
+      {
+        "numero": 1,
+        "titulo": "Chegada em Istambul",
+        "resumo": "Chegada ao aeroporto de Istambul, recepção e traslado ao hotel.",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": "Istambul",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 2,
+        "titulo": "Istambul · Passeio pelo Bósforo",
+        "resumo": "Navegação pelo Canal do Bósforo, que separa a Europa da Ásia, com vista para palácios, fortalezas e casas de veraneio.",
+        "passeios": [
+          "Barco pelo Bósforo",
+          "Bazar das Especiarias",
+          "Tarde livre"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Istambul",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 3,
+        "titulo": "Istambul · Cidade Antiga",
+        "resumo": "Um dia pelos grandes ícones de Istambul, do Hipódromo Romano ao Grande Bazar.",
+        "passeios": [
+          "Hipódromo Romano",
+          "Mesquita Azul",
+          "Santa Sofia e Cisterna Basílica",
+          "Grande Bazar"
+        ],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Istambul",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 4,
+        "titulo": "Istambul → Capadócia",
+        "resumo": "Voo de Istambul para a Capadócia, com recepção e traslado ao hotel.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Capadócia",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 5,
+        "titulo": "Capadócia",
+        "resumo": "A paisagem única da Capadócia, formada há cerca de 3 milhões de anos pelas lavas dos vulcões Erciyes e Hasan.",
+        "passeios": [
+          "Cidade subterrânea",
+          "Chaminés de Fadas"
+        ],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Capadócia (hotel de caverna)",
+        "opcionais": [
+          "Voo de balão",
+          "Danças folclóricas"
+        ],
+        "observacao": null
+      },
+      {
+        "numero": 6,
+        "titulo": "Capadócia",
+        "resumo": "Vilas trogloditas, igrejas escavadas na rocha e o artesanato local.",
+        "passeios": [
+          "Vila de Uçhisar",
+          "Vale de Göreme",
+          "Artesanato local"
+        ],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Capadócia (hotel de caverna)",
+        "opcionais": [
+          "Dervixes dançantes",
+          "Safári ao pôr do sol"
+        ],
+        "observacao": null
+      },
+      {
+        "numero": 7,
+        "titulo": "Capadócia → Istambul → Brasil",
+        "resumo": "Traslado ao aeroporto para o voo de retorno ao Brasil, com conexão em Istambul.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      }
+    ],
+    "continentes": [
+      "europa",
+      "asia"
+    ],
+    "aeroportoDestino": "IST",
+    "moeda": "US$",
+    "entrada": 1000,
+    "numParcelas": 10,
+    "valorParcela": 302,
+    "descricaoCurta": "Istambul e Capadócia em roteiro privativo de 7 dias, com guia em português e saída na data que você escolher.",
+    "incluso": [
+      "6 noites em hotéis 4★ e hotel de caverna na Capadócia, com café da manhã",
+      "Guia local em português durante as visitas",
+      "Visitas e ingressos conforme o roteiro",
+      "Refeições mencionadas no programa",
+      "Traslados e transporte em veículo climatizado",
+      "Imposto governamental da Turquia sobre hospedagem"
+    ],
+    "naoIncluso": [
+      "Passagens aéreas internacionais e domésticas",
+      "Taxas aeroportuárias, seguro viagem e seguro saúde",
+      "Passeios opcionais (voo de balão, danças folclóricas, dervixes, safári)",
+      "Bebidas, despesas pessoais e itens não mencionados",
+      "Gorjetas: guia USD 5 e motorista USD 3 por pessoa/dia"
+    ],
+    "fotos": [
+      "imgs/pacotes-2026/turquia-com-capadocia/00.jpg",
+      "imgs/pacotes-2026/turquia-com-capadocia/01.jpg",
+      "imgs/pacotes-2026/turquia-com-capadocia/02.jpg",
+      "imgs/pacotes-2026/turquia-com-capadocia/03.jpg",
+      "imgs/pacotes-2026/turquia-com-capadocia/04.jpg",
+      "imgs/pacotes-2026/turquia-com-capadocia/05.jpg",
+      "imgs/pacotes-2026/turquia-com-capadocia/06.jpg"
+    ],
+    "dias": 7,
+    "ordem": 1,
+    "metaDescricao": "Istambul e Capadócia em roteiro privativo de 7 dias, com guia em português e saída na data que você escolher."
+  },
+  {
+    "tipo": "assinadoByRuas",
+    "prioridade": "carrossel",
+    "periodo": "Saída o ano todo",
+    "partida": "Você escolhe a data",
+    "seguroStatus": "Não incluso",
+    "seguroValor": "",
+    "slug": "grecia",
+    "titulo": "Grécia",
+    "intro": [
+      "A Grécia é um convite a viajar no tempo e nos sentidos.",
+      "Berço da civilização ocidental, o país combina sítios arqueológicos impressionantes, vilarejos caiados de branco, mares azul-turquesa e uma cultura vibrante que celebra a vida à mesa e ao pôr do sol. Entre história milenar e paisagens cinematográficas, cada destino grego encanta com simplicidade, beleza e alma.",
+      "De Atenas às ilhas do Egeu, o passado e o presente convivem em perfeita harmonia. Templos antigos dividem espaço com tavernas animadas, praias paradisíacas e cenários que parecem pinturas. Viajar pela Grécia é sentir o tempo desacelerar e a vida ganhar novos significados."
+    ],
+    "itinerario": [
+      {
+        "numero": 1,
+        "titulo": "Atenas",
+        "resumo": "Chegada a Atenas, berço da civilização ocidental, com recepção e traslado ao hotel.",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": "Atenas",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 2,
+        "titulo": "Atenas · City Tour",
+        "resumo": "City tour completo pela capital grega, dos marcos históricos à Acrópole.",
+        "passeios": [
+          "Templo de Zeus",
+          "Acrópole e Parthenon",
+          "Museu da Acrópole",
+          "Tarde livre"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Atenas",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 3,
+        "titulo": "Atenas · Ágora Antiga e Plaka",
+        "resumo": "Passeio a pé com guia pela Ágora Antiga, onde nasceram os princípios da democracia.",
+        "passeios": [
+          "Ágora Antiga",
+          "Bairro de Plaka"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Atenas",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 4,
+        "titulo": "Atenas → Mykonos",
+        "resumo": "Voo para Mykonos e tour de orientação pela capital, Chora.",
+        "passeios": [
+          "Igreja Paraportiani",
+          "Pequena Veneza e moinhos"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Mykonos",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 5,
+        "titulo": "Mykonos",
+        "resumo": "Dia livre na ilha mais badalada da Grécia.",
+        "passeios": [
+          "Praias e beach clubs",
+          "Vida noturna"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Mykonos",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 6,
+        "titulo": "Mykonos",
+        "resumo": "Mais um dia livre para aproveitar Mykonos no seu ritmo.",
+        "passeios": [
+          "Dia livre"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Mykonos",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 7,
+        "titulo": "Mykonos → Santorini",
+        "resumo": "Ferry rápido até Santorini e primeiro contato com as vilas mais famosas da ilha.",
+        "passeios": [
+          "Oia",
+          "Fira"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Santorini",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 8,
+        "titulo": "Santorini · Passeio pela Caldeira",
+        "resumo": "Passeio de barco tradicional pela espetacular Caldeira de Santorini.",
+        "passeios": [
+          "Vulcão de Nea Kameni",
+          "Águas termais"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Santorini",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 9,
+        "titulo": "Santorini",
+        "resumo": "Dia livre entre paisagens vulcânicas, praias de areia escura e vilarejos encantadores.",
+        "passeios": [
+          "Pôr do sol em Oia"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Santorini",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 10,
+        "titulo": "Santorini → Brasil",
+        "resumo": "Traslado ao aeroporto de Santorini para o voo de retorno ao Brasil.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      }
+    ],
+    "continentes": [
+      "europa"
+    ],
+    "aeroportoDestino": "ATH",
+    "moeda": "€",
+    "entrada": 1500,
+    "numParcelas": 10,
+    "valorParcela": 494,
+    "descricaoCurta": "Atenas, Mykonos e Santorini em roteiro privativo de 10 dias, com saída na data que você escolher.",
+    "incluso": [
+      "Hotéis 4★ com café da manhã diário e taxas (exceto city tax)",
+      "Traslados aeroporto ⇄ hotel em Atenas em ônibus privativo",
+      "City tour em Atenas com guia em português, Acrópole e Museu da Acrópole",
+      "Passeio a pé pela Ágora Antiga e Plaka com guia em português",
+      "Voo Atenas → Mykonos em classe econômica, com 1 mala de até 15 kg",
+      "Tour de chegada em Mykonos e traslado ao hotel",
+      "Traslado ao porto e ferry rápido Mykonos → Santorini em classe executiva",
+      "Tour de chegada em Thira (Santorini) e traslado ao hotel",
+      "Passeio de barco tradicional pela Caldeira de Santorini (3 horas)",
+      "Transfer de ida e volta Thira ⇄ Oia",
+      "Traslado ao aeroporto de Santorini"
+    ],
+    "naoIncluso": [
+      "Passagens aéreas internacionais e domésticas",
+      "Taxas aeroportuárias",
+      "Seguro viagem e seguro saúde",
+      "Passeios opcionais",
+      "Bebidas, despesas pessoais e itens não mencionados",
+      "Gorjetas: guia USD 5 e motorista USD 3 por pessoa/dia"
+    ],
+    "fotos": [
+      "imgs/pacotes-2026/grecia/00.jpg",
+      "imgs/pacotes-2026/grecia/01.jpg",
+      "imgs/pacotes-2026/grecia/02.jpg",
+      "imgs/pacotes-2026/grecia/03.jpg",
+      "imgs/pacotes-2026/grecia/04.jpg",
+      "imgs/pacotes-2026/grecia/05.jpg"
+    ],
+    "dias": 10,
+    "ordem": 2,
+    "metaDescricao": "Atenas, Mykonos e Santorini em roteiro privativo de 10 dias, com saída na data que você escolher."
+  },
+  {
+    "tipo": "assinadoByRuas",
+    "prioridade": "carrossel",
+    "periodo": "Saída o ano todo",
+    "partida": "Você escolhe a data",
+    "seguroStatus": "Não incluso",
+    "seguroValor": "",
+    "slug": "puglia",
+    "titulo": "Puglia",
+    "intro": [
+      "A Puglia é um convite ao charme do sul da Itália, onde vilarejos brancos, oliveiras centenárias e o azul intenso do mar Adriático criam cenários inesquecíveis.",
+      "Conhecida por seus trulli, sua gastronomia autêntica e um ritmo de vida simples e elegante, a região encanta quem busca beleza, história e experiências genuínas, longe do turismo óbvio.",
+      "Entre cidades como Alberobello, Polignano a Mare e Ostuni, cada parada revela tradições preservadas, sabores intensos e paisagens que parecem intocadas pelo tempo. É um destino para viver a Itália de forma profunda, sensorial e cheia de alma."
+    ],
+    "itinerario": [
+      {
+        "numero": 1,
+        "titulo": "Brindisi → Lecce",
+        "resumo": "Chegada ao aeroporto de Brindisi e traslado privativo até Lecce (cerca de 45 minutos).",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": "Lecce",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 2,
+        "titulo": "Lecce",
+        "resumo": "Walking tour guiado pelo elegante centro histórico de Lecce, joia do barroco.",
+        "passeios": [
+          "Piazza del Duomo",
+          "Basílica de Santa Croce",
+          "Anfiteatro Romano",
+          "Tarde livre"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Lecce",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 3,
+        "titulo": "Lecce → Otranto → Lecce",
+        "resumo": "Dia em Otranto, charmosa cidade costeira às margens do Mar Adriático.",
+        "passeios": [
+          "Centro histórico",
+          "Catedral de Otranto",
+          "Castelo Aragonês"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Lecce",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 4,
+        "titulo": "Lecce → Gallipoli → Lecce",
+        "resumo": "Passeio por Gallipoli, com seu centro histórico cercado pelo mar.",
+        "passeios": [
+          "Praia ou beach club"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Lecce",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 5,
+        "titulo": "Lecce → Ostuni → Alberobello → Monopoli",
+        "resumo": "Um dia pelas cidades mais fotogênicas da Puglia, terminando à beira-mar em Monopoli.",
+        "passeios": [
+          "Ostuni",
+          "Trulli de Alberobello",
+          "Monopoli"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Monopoli (ou Polignano a Mare)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 6,
+        "titulo": "Monopoli → Polignano a Mare → Monopoli",
+        "resumo": "Manhã livre em Monopoli e tarde em Polignano a Mare, famosa por suas falésias.",
+        "passeios": [
+          "Manhã livre em Monopoli",
+          "Polignano a Mare"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Monopoli",
+        "opcionais": [],
+        "observacao": "Quando a hospedagem for em Polignano a Mare, a tarde é livre em Monopoli."
+      },
+      {
+        "numero": 7,
+        "titulo": "Monopoli → Bari",
+        "resumo": "Viagem até Bari (cerca de 50 minutos) e passeio guiado pela capital da Puglia.",
+        "passeios": [
+          "Basílica de São Nicolau",
+          "Centro histórico de Bari"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Bari",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 8,
+        "titulo": "Bari → Brasil",
+        "resumo": "Traslado ao aeroporto de Bari para o voo de retorno ao Brasil.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      }
+    ],
+    "continentes": [
+      "europa"
+    ],
+    "aeroportoDestino": "BDS",
+    "moeda": "€",
+    "entrada": 1500,
+    "numParcelas": 10,
+    "valorParcela": 290,
+    "descricaoCurta": "Lecce, Otranto, Ostuni, Alberobello e Polignano a Mare: o sul da Itália em roteiro privativo de 8 dias.",
+    "incluso": [
+      "4 noites em Lecce com café da manhã",
+      "2 noites em Monopoli ou Polignano a Mare com café da manhã",
+      "1 noite em Bari com café da manhã",
+      "Todos os traslados do roteiro em carro privado",
+      "Tour privado com guia em português em Bari e Lecce"
+    ],
+    "naoIncluso": [
+      "Passagens aéreas internacionais e domésticas",
+      "Taxas aeroportuárias",
+      "Seguro viagem e seguro saúde",
+      "Passeios opcionais",
+      "Bebidas, despesas pessoais e itens não mencionados",
+      "Gorjetas: guia USD 5 e motorista USD 3 por pessoa/dia"
+    ],
+    "fotos": [
+      "imgs/pacotes-2026/puglia/00.jpg",
+      "imgs/pacotes-2026/puglia/01.jpg",
+      "imgs/pacotes-2026/puglia/02.jpg",
+      "imgs/pacotes-2026/puglia/03.jpg",
+      "imgs/pacotes-2026/puglia/04.jpg",
+      "imgs/pacotes-2026/puglia/05.jpg"
+    ],
+    "dias": 8,
+    "ordem": 3,
+    "metaDescricao": "Lecce, Otranto, Ostuni, Alberobello e Polignano a Mare: o sul da Itália em roteiro privativo de 8 dias."
+  },
+  {
+    "tipo": "assinadoByRuas",
+    "prioridade": "carrossel",
+    "periodo": "Saída o ano todo",
+    "partida": "Você escolhe a data",
+    "seguroStatus": "Não incluso",
+    "seguroValor": "",
+    "slug": "egito",
+    "titulo": "Egito",
+    "intro": [
+      "Viva uma jornada inesquecível pelo Egito Antigo, explorando Cairo, Aswan, Edfu, Kom Ombo e Luxor em uma experiência que combina história, conforto e exclusividade.",
+      "Entre em tumbas milenares, visite templos lendários e navegue em um cruzeiro 5 estrelas pelo rio Nilo.",
+      "Cada detalhe foi pensado para que você reviva os mistérios das civilizações antigas, sem abrir mão da sofisticação e do encanto, unindo uma equipe altamente treinada pelo viajante mais famoso do Brasil!",
+      "Aproveite o melhor do Egito!"
+    ],
+    "itinerario": [
+      {
+        "numero": 1,
+        "titulo": "Chegada ao Cairo",
+        "resumo": "Recepção no aeroporto com assistência no visto e na imigração, e traslado privativo ao hotel em frente às Pirâmides de Gizé.",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": "Cairo (hotel 5★)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 2,
+        "titulo": "Cairo e as Grandes Pirâmides",
+        "resumo": "O dia mais esperado: o Grande Museu Egípcio e as Pirâmides de Gizé.",
+        "passeios": [
+          "Grande Museu Egípcio",
+          "Pirâmides de Gizé e Esfinge",
+          "Almoço no Nine Lounge"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cairo (hotel 5★)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 3,
+        "titulo": "Cairo → Luxor e cruzeiro pelo Nilo",
+        "resumo": "Voo para Luxor, visita aos grandes templos e embarque no cruzeiro pelo Nilo.",
+        "passeios": [
+          "Templo de Karnak",
+          "Embarque no cruzeiro",
+          "Templo de Luxor"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cruzeiro pelo Nilo",
+        "opcionais": [],
+        "observacao": "O café da manhã pode ser em lunchbox, conforme o horário do voo."
+      },
+      {
+        "numero": 4,
+        "titulo": "Luxor → Edfu",
+        "resumo": "O Vale dos Reis e os tesouros da margem oeste de Luxor, seguidos de navegação pelo Nilo.",
+        "passeios": [
+          "Vale dos Reis",
+          "Templo de Hatshepsut",
+          "Fábrica de alabastro",
+          "Eclusa de Esna"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cruzeiro pelo Nilo",
+        "opcionais": [
+          "Voo de balão"
+        ],
+        "observacao": "A entrada na tumba de Tutankamon não está incluída: o ingresso não pode ser comprado com antecedência."
+      },
+      {
+        "numero": 5,
+        "titulo": "Edfu → Kom Ombo → Aswan",
+        "resumo": "Templos às margens do Nilo e uma noite animada a bordo.",
+        "passeios": [
+          "Templo de Edfu",
+          "Chá à beira da piscina",
+          "Templo de Kom Ombo",
+          "Galabeya Party"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cruzeiro pelo Nilo",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 6,
+        "titulo": "Aswan e Vila Núbia",
+        "resumo": "Chegada a Aswan e visita ao Templo de Philae, um dos mais encantadores do Egito.",
+        "passeios": [
+          "Templo de Philae"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cruzeiro pelo Nilo",
+        "opcionais": [
+          "Vila Núbia",
+          "Abu Simbel"
+        ],
+        "observacao": null
+      },
+      {
+        "numero": 7,
+        "titulo": "Aswan → Cairo",
+        "resumo": "Voo de volta ao Cairo e visita a Sakkara, onde está a pirâmide mais antiga do mundo.",
+        "passeios": [
+          "Sakkara"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cairo (hotel 5★)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 8,
+        "titulo": "Cairo ou Alexandria",
+        "resumo": "Dia livre no Cairo ou passeio opcional a Alexandria, à beira do Mediterrâneo.",
+        "passeios": [],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Cairo (hotel 5★)",
+        "opcionais": [
+          "Alexandria"
+        ],
+        "observacao": null
+      },
+      {
+        "numero": 9,
+        "titulo": "Cairo e seus tesouros históricos",
+        "resumo": "Dia completo pelos principais marcos culturais e religiosos do Cairo.",
+        "passeios": [
+          "Cidadela de Saladino",
+          "Museu das Civilizações",
+          "Cairo Copta",
+          "Khan El Khalili"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cairo (hotel 5★)",
+        "opcionais": [],
+        "observacao": "Na mesquita é exigido traje que cubra ombros e joelhos."
+      },
+      {
+        "numero": 10,
+        "titulo": "Cairo → Brasil",
+        "resumo": "Dia livre para descanso e, em horário oportuno, traslado ao aeroporto para o voo de retorno.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": null,
+        "opcionais": [
+          "Antigo Museu Egípcio"
+        ],
+        "observacao": "As malas ficam na recepção do hotel durante o passeio."
+      },
+      {
+        "numero": 11,
+        "titulo": "Chegada ao Brasil",
+        "resumo": "Chegada ao Brasil e fim dos nossos serviços, com as melhores memórias do Egito Antigo.",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      }
+    ],
+    "continentes": [
+      "africa"
+    ],
+    "aeroportoDestino": "CAI",
+    "moeda": "US$",
+    "entrada": 1000,
+    "numParcelas": 10,
+    "valorParcela": 295,
+    "descricaoCurta": "Cairo, cruzeiro 5★ pelo Nilo, Luxor e Aswan em roteiro privativo de 11 dias, com guia em português.",
+    "incluso": [
+      "5 noites em hotel 5★ no Cairo com café da manhã",
+      "4 noites em cruzeiro pelo Nilo com pensão completa",
+      "Voos internos Cairo → Luxor e Aswan → Cairo",
+      "Visitas no Cairo: Grande Museu Egípcio, Pirâmides de Gizé, Sakkara, Cidadela de Saladino, Mesquita de Alabastro, Museu das Civilizações, Cairo Copta e Khan El Khalili",
+      "Visitas em Luxor, Edfu, Kom Ombo e Aswan: Karnak, Templo de Luxor, Vale dos Reis, Templo de Hatshepsut, Edfu, Kom Ombo e Philae",
+      "4 jantares e 2 almoços",
+      "Transporte privativo em todo o roteiro",
+      "Entradas nas atrações do roteiro",
+      "Assistência na imigração e visto de entrada",
+      "Guia em português"
+    ],
+    "naoIncluso": [
+      "Passagens aéreas a partir do Brasil",
+      "Seguro viagem",
+      "Passeios opcionais: balão (USD 300), Vila Núbia (USD 180), Alexandria (USD 300) e Abu Simbel (USD 250)",
+      "Gorjetas"
+    ],
+    "fotos": [
+      "imgs/pacotes-2026/egito/00.jpg",
+      "imgs/pacotes-2026/egito/01.jpg",
+      "imgs/pacotes-2026/egito/02.jpg",
+      "imgs/pacotes-2026/egito/03.jpg",
+      "imgs/pacotes-2026/egito/04.jpg",
+      "imgs/pacotes-2026/egito/05.jpg",
+      "imgs/pacotes-2026/egito/06.jpg",
+      "imgs/pacotes-2026/egito/07.jpg",
+      "imgs/pacotes-2026/egito/08.jpg",
+      "imgs/pacotes-2026/egito/09.jpg"
+    ],
+    "dias": 11,
+    "ordem": 4,
+    "metaDescricao": "Cairo, cruzeiro 5★ pelo Nilo, Luxor e Aswan em roteiro privativo de 11 dias, com guia em português."
+  },
+  {
+    "tipo": "assinadoByRuas",
+    "prioridade": "carrossel",
+    "periodo": "Saída o ano todo",
+    "partida": "Você escolhe a data",
+    "seguroStatus": "Não incluso",
+    "seguroValor": "",
+    "slug": "egito-e-jordania",
+    "titulo": "Egito e Jordânia",
+    "intro": [
+      "Viva uma jornada inesquecível pelo Egito Antigo e pela Jordânia, explorando Cairo, Aswan, Edfu, Kom Ombo e Luxor, além de cenários bíblicos e históricos jordanianos, em uma experiência que combina história, conforto e exclusividade.",
+      "Entre em tumbas milenares, visite templos lendários, descubra Petra, a cidade esculpida na rocha, contemple as paisagens surreais do Wadi Rum e navegue em um cruzeiro 5 estrelas pelo rio Nilo.",
+      "Cada detalhe foi pensado para que você reviva os mistérios das civilizações antigas, sem abrir mão da sofisticação e do encanto, unindo uma equipe altamente treinada pelo viajante mais famoso do Brasil!",
+      "Aproveite o melhor do Egito e da Jordânia!"
+    ],
+    "itinerario": [
+      {
+        "numero": 1,
+        "titulo": "Chegada ao Cairo",
+        "resumo": "Recepção no aeroporto com assistência no visto e na imigração, e traslado privativo ao hotel em frente às Pirâmides de Gizé.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Cairo (hotel 5★)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 2,
+        "titulo": "Cairo e as Grandes Pirâmides",
+        "resumo": "O dia mais esperado: o Grande Museu Egípcio e as Pirâmides de Gizé.",
+        "passeios": [
+          "Grande Museu Egípcio",
+          "Pirâmides de Gizé e Esfinge"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Cairo (hotel 5★)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 3,
+        "titulo": "Cairo → Luxor e cruzeiro pelo Nilo",
+        "resumo": "Voo para Luxor, visita aos grandes templos e embarque no cruzeiro pelo Nilo.",
+        "passeios": [
+          "Templo de Karnak",
+          "Embarque no cruzeiro",
+          "Templo de Luxor"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cruzeiro pelo Nilo",
+        "opcionais": [],
+        "observacao": "O café da manhã pode ser em lunchbox, conforme o horário do voo."
+      },
+      {
+        "numero": 4,
+        "titulo": "Luxor → Edfu",
+        "resumo": "O Vale dos Reis e os tesouros da margem oeste de Luxor, seguidos de navegação pelo Nilo.",
+        "passeios": [
+          "Vale dos Reis",
+          "Templo de Hatshepsut",
+          "Fábrica de alabastro",
+          "Eclusa de Esna"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cruzeiro pelo Nilo",
+        "opcionais": [
+          "Voo de balão"
+        ],
+        "observacao": "A entrada na tumba de Tutankamon não está incluída: o ingresso não pode ser comprado com antecedência."
+      },
+      {
+        "numero": 5,
+        "titulo": "Edfu → Kom Ombo → Aswan",
+        "resumo": "Templos às margens do Nilo e uma noite animada a bordo.",
+        "passeios": [
+          "Templo de Edfu",
+          "Chá à beira da piscina",
+          "Templo de Kom Ombo",
+          "Galabeya Party"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cruzeiro pelo Nilo",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 6,
+        "titulo": "Aswan e Vila Núbia",
+        "resumo": "Chegada a Aswan e visita ao Templo de Philae, um dos mais encantadores do Egito.",
+        "passeios": [
+          "Templo de Philae"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cruzeiro pelo Nilo",
+        "opcionais": [
+          "Vila Núbia",
+          "Abu Simbel"
+        ],
+        "observacao": null
+      },
+      {
+        "numero": 7,
+        "titulo": "Aswan → Cairo",
+        "resumo": "Voo de volta ao Cairo e visita a Sakkara, onde está a pirâmide mais antiga do mundo.",
+        "passeios": [
+          "Sakkara"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cairo (hotel 5★)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 8,
+        "titulo": "Cairo ou Alexandria",
+        "resumo": "Dia livre no Cairo ou passeio opcional a Alexandria, à beira do Mediterrâneo.",
+        "passeios": [],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Cairo (hotel 5★)",
+        "opcionais": [
+          "Alexandria"
+        ],
+        "observacao": null
+      },
+      {
+        "numero": 9,
+        "titulo": "Cairo e seus tesouros históricos",
+        "resumo": "Dia completo pelos principais marcos culturais e religiosos do Cairo.",
+        "passeios": [
+          "Cidadela de Saladino",
+          "Museu das Civilizações",
+          "Cairo Copta",
+          "Khan El Khalili"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cairo (hotel 5★)",
+        "opcionais": [],
+        "observacao": "Na mesquita é exigido traje que cubra ombros e joelhos."
+      },
+      {
+        "numero": 10,
+        "titulo": "Cairo → Amã",
+        "resumo": "Voo para Amã, capital da Jordânia, e tour panorâmico pela cidade.",
+        "passeios": [
+          "Cidadela de Amã"
+        ],
+        "refeicoes": "Jantar",
+        "hospedagem": "Amã (hotel 5★)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 11,
+        "titulo": "Amã → Jerash → Ajloun → Amã",
+        "resumo": "As ruínas romanas de Jerash e o castelo de Ajloun, com vista para o Vale do Jordão.",
+        "passeios": [
+          "Ruínas de Jerash",
+          "Castelo de Ajloun"
+        ],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Amã (hotel 5★)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 12,
+        "titulo": "Amã → Madaba → Monte Nebo → Petra",
+        "resumo": "Mosaicos bizantinos, a vista da Terra Prometida e a chegada a Petra.",
+        "passeios": [
+          "Mosaicos de Madaba",
+          "Monte Nebo"
+        ],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Petra (hotel 5★)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 13,
+        "titulo": "Petra → Wadi Rum",
+        "resumo": "Petra, a cidade esculpida na rocha, e uma noite no deserto de Wadi Rum.",
+        "passeios": [
+          "O Tesouro de Petra",
+          "Jipe 4x4 em Wadi Rum",
+          "Chá beduíno"
+        ],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Tenda no deserto de Wadi Rum",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 14,
+        "titulo": "Wadi Rum → Mar Morto",
+        "resumo": "Viagem até o Mar Morto, o ponto mais baixo do planeta.",
+        "passeios": [
+          "Flutuar no Mar Morto"
+        ],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Mar Morto (hotel 5★)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 15,
+        "titulo": "Mar Morto → Retorno",
+        "resumo": "Traslado ao Aeroporto Internacional Queen Alia e fim dos nossos serviços.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      }
+    ],
+    "continentes": [
+      "africa",
+      "asia"
+    ],
+    "aeroportoDestino": "CAI",
+    "moeda": "US$",
+    "entrada": 1000,
+    "numParcelas": 10,
+    "valorParcela": 447,
+    "descricaoCurta": "Pirâmides, cruzeiro pelo Nilo, Petra, Wadi Rum e Mar Morto em roteiro privativo de 15 dias.",
+    "incluso": [
+      "5 noites em hotel 5★ no Cairo com café da manhã",
+      "4 noites em cruzeiro pelo Nilo com pensão completa",
+      "Voos internos Cairo → Luxor e Aswan → Cairo",
+      "Visitas no Cairo: Grande Museu Egípcio, Pirâmides de Gizé, Sakkara, Cidadela de Saladino, Mesquita de Alabastro, Museu das Civilizações, Cairo Copta e Khan El Khalili",
+      "Visitas em Luxor, Edfu, Kom Ombo e Aswan: Karnak, Templo de Luxor, Vale dos Reis, Templo de Hatshepsut, Edfu, Kom Ombo e Philae",
+      "4 jantares e 2 almoços",
+      "Transporte privativo em todo o roteiro",
+      "Entradas nas atrações do roteiro",
+      "Assistência na imigração e visto de entrada",
+      "Guia em português",
+      "Jordânia: 2 noites em Amã, 1 em Petra e 1 no Mar Morto em hotéis 5★, e 1 noite em tenda no deserto de Wadi Rum",
+      "Voo interno Cairo → Amã",
+      "Café da manhã e jantar nos hotéis da Jordânia",
+      "Jeep tour de 2 horas em Wadi Rum",
+      "Na Jordânia: transporte com ar-condicionado e Wi-Fi, guia em português e entradas do roteiro",
+      "1 garrafa de água por pessoa por dia na Jordânia"
+    ],
+    "naoIncluso": [
+      "Passagens aéreas a partir do Brasil",
+      "Seguro viagem",
+      "Passeios opcionais: balão (USD 300), Vila Núbia (USD 180), Alexandria (USD 300) e Abu Simbel (USD 250)",
+      "Gorjetas"
+    ],
+    "fotos": [
+      "imgs/pacotes-2026/egito-e-jordania/00.jpg",
+      "imgs/pacotes-2026/egito-e-jordania/01.jpg",
+      "imgs/pacotes-2026/egito-e-jordania/02.jpg",
+      "imgs/pacotes-2026/egito-e-jordania/03.jpg",
+      "imgs/pacotes-2026/egito-e-jordania/04.jpg",
+      "imgs/pacotes-2026/egito-e-jordania/05.jpg",
+      "imgs/pacotes-2026/egito-e-jordania/06.jpg",
+      "imgs/pacotes-2026/egito-e-jordania/07.jpg",
+      "imgs/pacotes-2026/egito-e-jordania/08.jpg",
+      "imgs/pacotes-2026/egito-e-jordania/09.jpg",
+      "imgs/pacotes-2026/egito-e-jordania/10.jpg"
+    ],
+    "dias": 15,
+    "ordem": 5,
+    "metaDescricao": "Pirâmides, cruzeiro pelo Nilo, Petra, Wadi Rum e Mar Morto em roteiro privativo de 15 dias."
+  },
+  {
+    "tipo": "assinadoByRuas",
+    "prioridade": "carrossel",
+    "periodo": "Saída o ano todo",
+    "partida": "Você escolhe a data",
+    "seguroStatus": "Não incluso",
+    "seguroValor": "",
+    "slug": "turquia-e-grecia",
+    "titulo": "Turquia e Grécia",
+    "intro": [
+      "Istambul é o encontro entre dois mundos, onde o Oriente e o Ocidente se abraçam entre mesquitas, bazares e palácios cheios de história. Na Capadócia, o tempo parece suspenso entre vales surreais e balões colorindo o céu ao amanhecer, criando um cenário que parece saído de um sonho.",
+      "E na Grécia, o azul do mar, as ilhas encantadoras e as ruínas milenares contam histórias de deuses, heróis e civilizações que moldaram o mundo. Uma viagem que mistura cultura, paisagens inesquecíveis e experiências que ficam para sempre na memória."
+    ],
+    "itinerario": [
+      {
+        "numero": 1,
+        "titulo": "Chegada em Istambul",
+        "resumo": "Chegada ao aeroporto de Istambul, recepção e traslado ao hotel.",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": "Istambul",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 2,
+        "titulo": "Istambul · Passeio pelo Bósforo",
+        "resumo": "Navegação pelo Canal do Bósforo, que separa a Europa da Ásia, com vista para palácios, fortalezas e casas de veraneio.",
+        "passeios": [
+          "Barco pelo Bósforo",
+          "Bazar das Especiarias",
+          "Tarde livre"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Istambul",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 3,
+        "titulo": "Istambul · Cidade Antiga",
+        "resumo": "Um dia pelos grandes ícones de Istambul, do Hipódromo Romano ao Grande Bazar.",
+        "passeios": [
+          "Hipódromo Romano",
+          "Mesquita Azul",
+          "Santa Sofia e Cisterna Basílica",
+          "Grande Bazar"
+        ],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Istambul",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 4,
+        "titulo": "Istambul → Capadócia",
+        "resumo": "Voo de Istambul para a Capadócia, com recepção e traslado ao hotel.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Capadócia",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 5,
+        "titulo": "Capadócia",
+        "resumo": "A paisagem única da Capadócia, formada há cerca de 3 milhões de anos pelas lavas dos vulcões Erciyes e Hasan.",
+        "passeios": [
+          "Cidade subterrânea",
+          "Chaminés de Fadas"
+        ],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Capadócia (hotel de caverna)",
+        "opcionais": [
+          "Voo de balão",
+          "Danças folclóricas"
+        ],
+        "observacao": null
+      },
+      {
+        "numero": 6,
+        "titulo": "Capadócia",
+        "resumo": "Vilas trogloditas, igrejas escavadas na rocha e o artesanato local.",
+        "passeios": [
+          "Vila de Uçhisar",
+          "Vale de Göreme",
+          "Artesanato local"
+        ],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Capadócia (hotel de caverna)",
+        "opcionais": [
+          "Dervixes dançantes",
+          "Safári ao pôr do sol"
+        ],
+        "observacao": null
+      },
+      {
+        "numero": 7,
+        "titulo": "Capadócia → Atenas",
+        "resumo": "Traslado ao aeroporto para o voo com destino a Atenas.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 8,
+        "titulo": "Atenas",
+        "resumo": "Chegada a Atenas, berço da civilização ocidental, com recepção e traslado ao hotel.",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": "Atenas",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 9,
+        "titulo": "Atenas · City Tour",
+        "resumo": "City tour completo pela capital grega, dos marcos históricos à Acrópole.",
+        "passeios": [
+          "Templo de Zeus",
+          "Acrópole e Parthenon",
+          "Museu da Acrópole",
+          "Tarde livre"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Atenas",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 10,
+        "titulo": "Atenas · Ágora Antiga e Plaka",
+        "resumo": "Passeio a pé com guia pela Ágora Antiga, onde nasceram os princípios da democracia.",
+        "passeios": [
+          "Ágora Antiga",
+          "Bairro de Plaka"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Atenas",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 11,
+        "titulo": "Atenas → Mykonos",
+        "resumo": "Voo para Mykonos e tour de orientação pela capital, Chora.",
+        "passeios": [
+          "Igreja Paraportiani",
+          "Pequena Veneza e moinhos"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Mykonos",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 12,
+        "titulo": "Mykonos",
+        "resumo": "Dia livre na ilha mais badalada da Grécia.",
+        "passeios": [
+          "Praias e beach clubs",
+          "Vida noturna"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Mykonos",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 13,
+        "titulo": "Mykonos",
+        "resumo": "Mais um dia livre para aproveitar Mykonos no seu ritmo.",
+        "passeios": [
+          "Dia livre"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Mykonos",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 14,
+        "titulo": "Mykonos → Santorini",
+        "resumo": "Ferry rápido até Santorini e primeiro contato com as vilas mais famosas da ilha.",
+        "passeios": [
+          "Oia",
+          "Fira"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Santorini",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 15,
+        "titulo": "Santorini · Passeio pela Caldeira",
+        "resumo": "Passeio de barco tradicional pela espetacular Caldeira de Santorini.",
+        "passeios": [
+          "Vulcão de Nea Kameni",
+          "Águas termais"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Santorini",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 16,
+        "titulo": "Santorini",
+        "resumo": "Dia livre entre paisagens vulcânicas, praias de areia escura e vilarejos encantadores.",
+        "passeios": [
+          "Pôr do sol em Oia"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Santorini",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 17,
+        "titulo": "Santorini → Brasil",
+        "resumo": "Traslado ao aeroporto de Santorini para o voo de retorno ao Brasil.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      }
+    ],
+    "continentes": [
+      "europa",
+      "asia"
+    ],
+    "aeroportoDestino": "IST",
+    "moeda": "€",
+    "entrada": 1500,
+    "numParcelas": 10,
+    "valorParcela": 824,
+    "descricaoCurta": "Istambul, Capadócia, Atenas, Mykonos e Santorini em roteiro privativo de 17 dias.",
+    "incluso": [
+      "6 noites em hotéis 4★ e hotel de caverna na Capadócia, com café da manhã",
+      "Turquia: guia local em português durante as visitas",
+      "Turquia: visitas e ingressos conforme o roteiro",
+      "Turquia: refeições mencionadas no programa",
+      "Turquia: traslados e transporte em veículo climatizado",
+      "Imposto governamental da Turquia sobre hospedagem",
+      "Hotéis 4★ com café da manhã diário e taxas (exceto city tax)",
+      "Traslados aeroporto ⇄ hotel em Atenas em ônibus privativo",
+      "City tour em Atenas com guia em português, Acrópole e Museu da Acrópole",
+      "Passeio a pé pela Ágora Antiga e Plaka com guia em português",
+      "Voo Atenas → Mykonos em classe econômica, com 1 mala de até 15 kg",
+      "Tour de chegada em Mykonos e traslado ao hotel",
+      "Traslado ao porto e ferry rápido Mykonos → Santorini em classe executiva",
+      "Tour de chegada em Thira (Santorini) e traslado ao hotel",
+      "Passeio de barco tradicional pela Caldeira de Santorini (3 horas)",
+      "Transfer de ida e volta Thira ⇄ Oia",
+      "Traslado ao aeroporto de Santorini"
+    ],
+    "naoIncluso": [
+      "Passagens aéreas internacionais e domésticas",
+      "Taxas aeroportuárias",
+      "Seguro viagem e seguro saúde",
+      "Passeios opcionais",
+      "Bebidas, despesas pessoais e itens não mencionados",
+      "Gorjetas: guia USD 5 e motorista USD 3 por pessoa/dia"
+    ],
+    "fotos": [
+      "imgs/pacotes-2026/turquia-e-grecia/00.jpg",
+      "imgs/pacotes-2026/turquia-e-grecia/01.jpg",
+      "imgs/pacotes-2026/turquia-e-grecia/02.jpg",
+      "imgs/pacotes-2026/turquia-e-grecia/03.jpg",
+      "imgs/pacotes-2026/turquia-e-grecia/04.jpg",
+      "imgs/pacotes-2026/turquia-e-grecia/05.jpg",
+      "imgs/pacotes-2026/turquia-e-grecia/06.jpg",
+      "imgs/pacotes-2026/turquia-e-grecia/07.jpg"
+    ],
+    "dias": 17,
+    "ordem": 6,
+    "metaDescricao": "Istambul, Capadócia, Atenas, Mykonos e Santorini em roteiro privativo de 17 dias."
+  },
+  {
+    "tipo": "assinadoByRuas",
+    "prioridade": "carrossel",
+    "periodo": "Saída o ano todo",
+    "partida": "Você escolhe a data",
+    "seguroStatus": "Não incluso",
+    "seguroValor": "",
+    "slug": "puglia-e-grecia",
+    "titulo": "Puglia e Grécia",
+    "intro": [
+      "Puglia encanta com seus vilarejos de pedra branca, oliveiras centenárias e o azul profundo do Mar Adriático, onde o tempo parece correr mais devagar e cada paisagem é um convite ao dolce far niente.",
+      "Na Grécia, ilhas deslumbrantes, ruínas milenares e o mar cristalino criam o cenário perfeito para uma viagem entre história, beleza e leveza.",
+      "Uma combinação única entre o charme italiano e a alma grega, ideal para quem busca cultura, paisagens inesquecíveis e experiências cheias de encanto."
+    ],
+    "itinerario": [
+      {
+        "numero": 1,
+        "titulo": "Brindisi → Lecce",
+        "resumo": "Chegada ao aeroporto de Brindisi e traslado privativo até Lecce (cerca de 45 minutos).",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": "Lecce",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 2,
+        "titulo": "Lecce",
+        "resumo": "Walking tour guiado pelo elegante centro histórico de Lecce, joia do barroco.",
+        "passeios": [
+          "Piazza del Duomo",
+          "Basílica de Santa Croce",
+          "Anfiteatro Romano",
+          "Tarde livre"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Lecce",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 3,
+        "titulo": "Lecce → Otranto → Lecce",
+        "resumo": "Dia em Otranto, charmosa cidade costeira às margens do Mar Adriático.",
+        "passeios": [
+          "Centro histórico",
+          "Catedral de Otranto",
+          "Castelo Aragonês"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Lecce",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 4,
+        "titulo": "Lecce → Gallipoli → Lecce",
+        "resumo": "Passeio por Gallipoli, com seu centro histórico cercado pelo mar.",
+        "passeios": [
+          "Praia ou beach club"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Lecce",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 5,
+        "titulo": "Lecce → Ostuni → Alberobello → Monopoli",
+        "resumo": "Um dia pelas cidades mais fotogênicas da Puglia, terminando à beira-mar em Monopoli.",
+        "passeios": [
+          "Ostuni",
+          "Trulli de Alberobello",
+          "Monopoli"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Monopoli (ou Polignano a Mare)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 6,
+        "titulo": "Monopoli → Polignano a Mare → Monopoli",
+        "resumo": "Manhã livre em Monopoli e tarde em Polignano a Mare, famosa por suas falésias.",
+        "passeios": [
+          "Manhã livre em Monopoli",
+          "Polignano a Mare"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Monopoli",
+        "opcionais": [],
+        "observacao": "Quando a hospedagem for em Polignano a Mare, a tarde é livre em Monopoli."
+      },
+      {
+        "numero": 7,
+        "titulo": "Monopoli → Bari",
+        "resumo": "Viagem até Bari (cerca de 50 minutos) e passeio guiado pela capital da Puglia.",
+        "passeios": [
+          "Basílica de São Nicolau",
+          "Centro histórico de Bari"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Bari",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 8,
+        "titulo": "Bari → Nápoles → Atenas",
+        "resumo": "Traslado ao aeroporto de Bari para seguir a Nápoles e embarcar no voo para Atenas.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 9,
+        "titulo": "Atenas",
+        "resumo": "Chegada a Atenas, berço da civilização ocidental, com recepção e traslado ao hotel.",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": "Atenas",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 10,
+        "titulo": "Atenas · City Tour",
+        "resumo": "City tour completo pela capital grega, dos marcos históricos à Acrópole.",
+        "passeios": [
+          "Templo de Zeus",
+          "Acrópole e Parthenon",
+          "Museu da Acrópole",
+          "Tarde livre"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Atenas",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 11,
+        "titulo": "Atenas · Ágora Antiga e Plaka",
+        "resumo": "Passeio a pé com guia pela Ágora Antiga, onde nasceram os princípios da democracia.",
+        "passeios": [
+          "Ágora Antiga",
+          "Bairro de Plaka"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Atenas",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 12,
+        "titulo": "Atenas → Mykonos",
+        "resumo": "Voo para Mykonos e tour de orientação pela capital, Chora.",
+        "passeios": [
+          "Igreja Paraportiani",
+          "Pequena Veneza e moinhos"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Mykonos",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 13,
+        "titulo": "Mykonos",
+        "resumo": "Dia livre na ilha mais badalada da Grécia.",
+        "passeios": [
+          "Praias e beach clubs",
+          "Vida noturna"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Mykonos",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 14,
+        "titulo": "Mykonos",
+        "resumo": "Mais um dia livre para aproveitar Mykonos no seu ritmo.",
+        "passeios": [
+          "Dia livre"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Mykonos",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 15,
+        "titulo": "Mykonos → Santorini",
+        "resumo": "Ferry rápido até Santorini e primeiro contato com as vilas mais famosas da ilha.",
+        "passeios": [
+          "Oia",
+          "Fira"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Santorini",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 16,
+        "titulo": "Santorini · Passeio pela Caldeira",
+        "resumo": "Passeio de barco tradicional pela espetacular Caldeira de Santorini.",
+        "passeios": [
+          "Vulcão de Nea Kameni",
+          "Águas termais"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Santorini",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 17,
+        "titulo": "Santorini",
+        "resumo": "Dia livre entre paisagens vulcânicas, praias de areia escura e vilarejos encantadores.",
+        "passeios": [
+          "Pôr do sol em Oia"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Santorini",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 18,
+        "titulo": "Santorini → Brasil",
+        "resumo": "Traslado ao aeroporto de Santorini para o voo de retorno ao Brasil.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      }
+    ],
+    "continentes": [
+      "europa"
+    ],
+    "aeroportoDestino": "BDS",
+    "moeda": "€",
+    "entrada": 1500,
+    "numParcelas": 10,
+    "valorParcela": 816,
+    "descricaoCurta": "O sul da Itália e as ilhas gregas em 18 dias: Lecce, Alberobello, Atenas, Mykonos e Santorini.",
+    "incluso": [
+      "4 noites em Lecce com café da manhã",
+      "2 noites em Monopoli ou Polignano a Mare com café da manhã",
+      "1 noite em Bari com café da manhã",
+      "Todos os traslados do roteiro em carro privado",
+      "Tour privado com guia em português em Bari e Lecce",
+      "Hotéis 4★ com café da manhã diário e taxas (exceto city tax)",
+      "Traslados aeroporto ⇄ hotel em Atenas em ônibus privativo",
+      "City tour em Atenas com guia em português, Acrópole e Museu da Acrópole",
+      "Passeio a pé pela Ágora Antiga e Plaka com guia em português",
+      "Voo Atenas → Mykonos em classe econômica, com 1 mala de até 15 kg",
+      "Tour de chegada em Mykonos e traslado ao hotel",
+      "Traslado ao porto e ferry rápido Mykonos → Santorini em classe executiva",
+      "Tour de chegada em Thira (Santorini) e traslado ao hotel",
+      "Passeio de barco tradicional pela Caldeira de Santorini (3 horas)",
+      "Transfer de ida e volta Thira ⇄ Oia",
+      "Traslado ao aeroporto de Santorini"
+    ],
+    "naoIncluso": [
+      "Passagens aéreas internacionais e domésticas",
+      "Taxas aeroportuárias",
+      "Seguro viagem e seguro saúde",
+      "Passeios opcionais",
+      "Bebidas, despesas pessoais e itens não mencionados",
+      "Gorjetas: guia USD 5 e motorista USD 3 por pessoa/dia"
+    ],
+    "fotos": [
+      "imgs/pacotes-2026/puglia-e-grecia/00.jpg",
+      "imgs/pacotes-2026/puglia-e-grecia/01.jpg",
+      "imgs/pacotes-2026/puglia-e-grecia/02.jpg",
+      "imgs/pacotes-2026/puglia-e-grecia/03.jpg",
+      "imgs/pacotes-2026/puglia-e-grecia/04.jpg",
+      "imgs/pacotes-2026/puglia-e-grecia/05.jpg",
+      "imgs/pacotes-2026/puglia-e-grecia/06.jpg",
+      "imgs/pacotes-2026/puglia-e-grecia/07.jpg"
+    ],
+    "dias": 18,
+    "ordem": 7,
+    "metaDescricao": "O sul da Itália e as ilhas gregas em 18 dias: Lecce, Alberobello, Atenas, Mykonos e Santorini."
+  },
+  {
+    "slug": "dolomitas-2027",
+    "titulo": "Dolomitas",
+    "tipo": "gruposDoRuas",
+    "prioridade": "destaque",
+    "continentes": [
+      "europa"
+    ],
+    "aeroportoDestino": "MXP",
+    "dataIda": "2027-05-22",
+    "dataVolta": "2027-06-01",
+    "periodo": "Maio 2027",
+    "partida": "22/05",
+    "moeda": "€",
+    "entrada": 2300,
+    "numParcelas": 8,
+    "valorParcela": 514,
+    "tagline": "Grupo exclusivo: apenas 15 quartos",
+    "descricaoCurta": "Milão, Lago de Como e Dolomitas com o Grupo do Ruas: hotéis 4★ premium, barco privativo e guias em português.",
+    "intro": [
+      "Nove dias entre a elegância de Milão, os jardins à beira d'água do Lago de Como e os passos alpinos das Dolomitas. Hotéis categoria 4★ premium, barco privativo e guias de português do início ao fim."
+    ],
+    "itinerario": [
+      {
+        "numero": 1,
+        "titulo": "Saída do Brasil · 22/05",
+        "resumo": "Saída de São Paulo rumo a Milão.",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 2,
+        "titulo": "Chegada em Milão · 23/05",
+        "resumo": "Chegada a Milão, com recepção e transfer privado ao hotel.",
+        "passeios": [
+          "Tarde livre"
+        ],
+        "refeicoes": null,
+        "hospedagem": "Milão (hotel 4★ premium)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 3,
+        "titulo": "Milão · 24/05",
+        "resumo": "Walking tour pelo centro histórico de Milão com guia em português.",
+        "passeios": [
+          "Terraços do Duomo",
+          "Galleria e Teatro alla Scala",
+          "Almoço de boas-vindas"
+        ],
+        "refeicoes": "Café da manhã e almoço",
+        "hospedagem": "Milão (hotel 4★ premium)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 4,
+        "titulo": "Milão → Lago de Como · 25/05",
+        "resumo": "Viagem ao Lago de Como com visita guiada pelos pontos principais.",
+        "passeios": [
+          "Catedral de Como",
+          "Promenade do lago"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Como (hotel 4★ premium à beira do lago)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 5,
+        "titulo": "Lago de Como · 26/05",
+        "resumo": "Dia inteiro de barco privativo pelo Lago de Como.",
+        "passeios": [
+          "Bellagio e Varenna",
+          "Villas históricas"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Como (hotel 4★ premium à beira do lago)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 6,
+        "titulo": "Lago de Como · 27/05",
+        "resumo": "Dia livre para viver Como no seu ritmo, com sugestões de passeios e restaurantes.",
+        "passeios": [
+          "Funicular de Brunate"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Como (hotel 4★ premium à beira do lago)",
+        "opcionais": [
+          "Lugano (Suíça)",
+          "Ilhas Borromeas"
+        ],
+        "observacao": null
+      },
+      {
+        "numero": 7,
+        "titulo": "Lago de Como → Cortina d'Ampezzo · 28/05",
+        "resumo": "Viagem cinematográfica pelas estradas italianas até as Dolomitas.",
+        "passeios": [
+          "Almoço em Bolzano",
+          "Cortina d'Ampezzo"
+        ],
+        "refeicoes": "Café da manhã e almoço",
+        "hospedagem": "Cortina d'Ampezzo (hotel 4★ premium)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 8,
+        "titulo": "Dolomitas · 29/05",
+        "resumo": "O passeio mais desejado dos Alpes italianos, pelos lagos mais bonitos da região.",
+        "passeios": [
+          "Lago di Braies",
+          "Tre Cime di Lavaredo",
+          "Cortina d'Ampezzo"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Cortina d'Ampezzo (hotel 4★ premium)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 9,
+        "titulo": "Dolomitas · 30/05",
+        "resumo": "O dia das melhores fotografias da viagem.",
+        "passeios": [
+          "Passo Giau e Pordoi",
+          "Val Gardena e Seceda"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Cortina d'Ampezzo (hotel 4★ premium)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 10,
+        "titulo": "Cortina d'Ampezzo → Veneza · 31/05",
+        "resumo": "Transfer privado até o aeroporto de Veneza Marco Polo para o voo de volta.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 11,
+        "titulo": "Chegada ao Brasil · 01/06",
+        "resumo": "Chegada ao Brasil.",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      }
+    ],
+    "incluso": [
+      "8 noites em hotéis categoria 4★ premium com café da manhã e city tax",
+      "Transfers privados de chegada e saída com assistente de fala portuguesa",
+      "Ônibus privativo com guia acompanhante em todos os dias de programa",
+      "Guias locais de português",
+      "Ingressos aos terraços do Duomo e ao Teatro alla Scala",
+      "Dia inteiro de barco privativo no Lago de Como",
+      "Almoço de boas-vindas em Milão e almoço em Bolzano"
+    ],
+    "naoIncluso": [
+      "Voo internacional (a informar)",
+      "Serviço de maleteiros em aeroportos e hotéis",
+      "Gorjetas e gastos pessoais",
+      "Almoços e jantares não especificados",
+      "Bilhetes e entradas não especificados",
+      "Opcionais: Lugano (€ 270), Stresa e Ilhas Borromeas (€ 360) e funicular Como–Brunate (€ 7)",
+      "Suplemento para quarto single: € 2.500"
+    ],
+    "fotos": [
+      "imgs/pacotes-2026/dolomitas-2027/00.jpg",
+      "imgs/pacotes-2026/dolomitas-2027/01.jpg",
+      "imgs/pacotes-2026/dolomitas-2027/02.jpg",
+      "imgs/pacotes-2026/dolomitas-2027/03.jpg",
+      "imgs/pacotes-2026/dolomitas-2027/04.jpg"
+    ],
+    "ordem": 1,
+    "metaDescricao": "Milão, Lago de Como e Dolomitas com o Grupo do Ruas: hotéis 4★ premium, barco privativo e guias em português."
+  },
+  {
+    "slug": "africa-do-sul-2027",
+    "titulo": "África do Sul",
+    "tipo": "gruposDoRuas",
+    "prioridade": "carrossel",
+    "continentes": [
+      "africa"
+    ],
+    "aeroportoDestino": "JNB",
+    "dataIda": "2027-06-24",
+    "dataVolta": "2027-07-04",
+    "periodo": "Junho 2027",
+    "partida": "24/06",
+    "moeda": "US$",
+    "entrada": 2300,
+    "numParcelas": 10,
+    "valorParcela": 615,
+    "tagline": "Grupo exclusivo: apenas 15 quartos",
+    "descricaoCurta": "Safári no Kapama, vinícolas de Stellenbosch e Cidade do Cabo com o Grupo do Ruas, de 24/06 a 04/07/2027.",
+    "intro": [],
+    "itinerario": [
+      {
+        "numero": 1,
+        "titulo": "Saída do Brasil · 24/06",
+        "resumo": "Saída do Brasil rumo a Joanesburgo.",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": "Voo internacional: detalhes a informar."
+      },
+      {
+        "numero": 2,
+        "titulo": "Joanesburgo → Kapama · 25/06",
+        "resumo": "Chegada a Joanesburgo e voo regional até o Kapama, onde começa o safári.",
+        "passeios": [
+          "Primeiro safári"
+        ],
+        "refeicoes": "Almoço e jantar",
+        "hospedagem": "Kapama Southern Camp",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 3,
+        "titulo": "Safári no Kapama · 26/06",
+        "resumo": "Dia inteiro no Kapama, com safáris ao amanhecer e no fim da tarde.",
+        "passeios": [
+          "Dois safáris"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Kapama Southern Camp",
+        "opcionais": [
+          "Spa no Camp Karula"
+        ],
+        "observacao": null
+      },
+      {
+        "numero": 4,
+        "titulo": "Safári no Kapama · 27/06",
+        "resumo": "Mais um dia no mesmo ritmo: dois safáris guiados e tarde livre no lodge.",
+        "passeios": [
+          "Dois safáris"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Kapama Southern Camp",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 5,
+        "titulo": "Kapama → Stellenbosch · 28/06",
+        "resumo": "Último safári ao amanhecer e voo para a Cidade do Cabo, seguindo para as Winelands.",
+        "passeios": [
+          "Último safári",
+          "Stellenbosch"
+        ],
+        "refeicoes": "Café da manhã e jantar",
+        "hospedagem": "Stellenbosch (hotel vinícola boutique)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 6,
+        "titulo": "Winelands · 29/06",
+        "resumo": "Dia inteiro nas Winelands com guia e ônibus privativos.",
+        "passeios": [
+          "Degustação de vinhos",
+          "Almoço harmonizado",
+          "Franschhoek"
+        ],
+        "refeicoes": "Café da manhã e almoço",
+        "hospedagem": "Stellenbosch (hotel vinícola boutique)",
+        "opcionais": [],
+        "observacao": "Jantar não incluído."
+      },
+      {
+        "numero": 7,
+        "titulo": "Stellenbosch → Cidade do Cabo · 30/06",
+        "resumo": "Traslado à tarde para a Cidade do Cabo, com guia de português.",
+        "passeios": [
+          "V&A Waterfront"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Cidade do Cabo (V&A Waterfront)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 8,
+        "titulo": "Cidade do Cabo · 01/07",
+        "resumo": "City tour de meio dia com guia de português pelos cartões-postais da cidade.",
+        "passeios": [
+          "Bo-Kaap",
+          "Table Mountain",
+          "Tarde livre"
+        ],
+        "refeicoes": "Café da manhã",
+        "hospedagem": "Cidade do Cabo (V&A Waterfront)",
+        "opcionais": [
+          "Museu Zeitz MOCAA"
+        ],
+        "observacao": null
+      },
+      {
+        "numero": 9,
+        "titulo": "Cape Point · 02/07",
+        "resumo": "Dia inteiro na península do Cabo e jantar de despedida do grupo.",
+        "passeios": [
+          "Cape Point",
+          "Pinguins de Boulders",
+          "Jantar de despedida"
+        ],
+        "refeicoes": "Café da manhã, almoço e jantar",
+        "hospedagem": "Cidade do Cabo (V&A Waterfront)",
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 10,
+        "titulo": "Cidade do Cabo → Brasil · 03/07",
+        "resumo": "Traslado ao aeroporto com guia de português e voo das 12h30 rumo ao Brasil.",
+        "passeios": [],
+        "refeicoes": "Café da manhã",
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      },
+      {
+        "numero": 11,
+        "titulo": "Chegada ao Brasil · 04/07",
+        "resumo": "Chegada ao Brasil e fim do roteiro.",
+        "passeios": [],
+        "refeicoes": null,
+        "hospedagem": null,
+        "opcionais": [],
+        "observacao": null
+      }
+    ],
+    "incluso": [
+      "Hospedagem conforme o roteiro",
+      "Voos regionais Joanesburgo → Hoedspruit e Hoedspruit → Cidade do Cabo",
+      "Três refeições diárias e dois safáris por dia com rangers no Kapama",
+      "Refeições indicadas no roteiro",
+      "Guias de português",
+      "Ônibus de luxo, traslados e carregadores",
+      "Taxas de conservação e ingressos citados"
+    ],
+    "naoIncluso": [
+      "Voo internacional Brasil ⇄ Joanesburgo (a informar)",
+      "Refeições e bebidas não mencionadas",
+      "Gorjetas, lavanderia, telefone, spa, souvenirs e fones de ouvido",
+      "Jardins de Kirstenbosch",
+      "Opcional: Museu Zeitz MOCAA (USD 85)",
+      "Suplemento para quarto single: USD 3.500 (USD 150 de desconto à vista)"
+    ],
+    "fotos": [
+      "imgs/pacotes-2026/africa-do-sul-2027/00.jpg",
+      "imgs/pacotes-2026/africa-do-sul-2027/01.jpg",
+      "imgs/pacotes-2026/africa-do-sul-2027/02.jpg",
+      "imgs/pacotes-2026/africa-do-sul-2027/03.jpg",
+      "imgs/pacotes-2026/africa-do-sul-2027/04.jpg",
+      "imgs/pacotes-2026/africa-do-sul-2027/05.jpg"
+    ],
+    "ordem": 2,
+    "metaDescricao": "Safári no Kapama, vinícolas de Stellenbosch e Cidade do Cabo com o Grupo do Ruas, de 24/06 a 04/07/2027."
+  }
+]
