@@ -172,13 +172,13 @@ Rodar de dentro de `site/` com `SANITY_TOKEN` no ambiente.
 
 ---
 
-## 9. Backlog (out/2026). Cada item vira uma issue
+## 9. Backlog (out/2026). Cada item é uma issue no GitHub
 
-1. **Remover tudo sobre grupos, exceto Grupos do Ruas.** A empresa não faz mais grupos de brasileiros. O tipo já saiu do código; falta revisar os textos que ainda falam de "grupos" de forma genérica (`sobre/page.tsx`, títulos e cópia da home, cards do form, `"X por grupo"` na página do pacote) e garantir que não sobrou nenhum documento ou cópia no Sanity.
-2. **Nova seção na home: "Viagens passadas" ou relacionados.** Pode reaproveitar `viagemRealizada` (já existe, com 4 cadastradas) ou mostrar pacotes relacionados.
-3. **Atualizar o conteúdo do site para o que estão vendendo e divulgando hoje.** Conferir os 9 pacotes contra as versões mais recentes dos PDFs (os nomes dos arquivos têm números de versão, então pode ter mudado alguma coisa), além de hero, números, depoimento, Sobre e CTA. Destacar os privativos como produto principal.
-4. **Refinar design e interação no desktop.**
-5. **Refinar design e interação no mobile.**
+1. **[#1]** **Remover tudo sobre grupos, exceto Grupos do Ruas.** A empresa não faz mais grupos de brasileiros. O tipo já saiu do código; falta revisar os textos que ainda falam de "grupos" de forma genérica (`sobre/page.tsx`, títulos e cópia da home, cards do form, `"X por grupo"` na página do pacote) e garantir que não sobrou nenhum documento ou cópia no Sanity.
+2. **[#2]** **Nova seção na home: "Viagens passadas" ou relacionados.** Pode reaproveitar `viagemRealizada` (já existe, com 4 cadastradas) ou mostrar pacotes relacionados.
+3. **[#3]** **Atualizar o conteúdo do site para o que estão vendendo e divulgando hoje.** Conferir os 9 pacotes contra as versões mais recentes dos PDFs (os nomes dos arquivos têm números de versão, então pode ter mudado alguma coisa), além de hero, números, depoimento, Sobre e CTA. Destacar os privativos como produto principal.
+4. **[#4]** **Refinar design e interação no desktop.**
+5. **[#5]** **Refinar design e interação no mobile.**
 
 ---
 
