@@ -104,7 +104,7 @@ export default async function PacotePage({ params }: { params: Promise<{ slug: s
                 { label: "Duração",  value: pacote.dias    ? `${pacote.dias} dias` : "—" },
                 { label: "Partida",  value: pacote.partida ?? "—" },
                 { label: "Período",  value: pacote.periodo ?? "—" },
-                { label: "Vagas",    value: pacote.vagas   ? `${pacote.vagas} por grupo` : "—" },
+                { label: "Vagas",    value: pacote.vagas   ? `${pacote.vagas} ${pacote.tipo === "gruposDoRuas" ? "por grupo" : "pessoas"}` : "—" },
               ].map(({ label, value }) => (
                 <div key={label}>
                   <p className="t-label mb-1">{label}</p>
