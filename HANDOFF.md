@@ -1,222 +1,184 @@
 # Handoff — RR Viagens
 
-**Repositório:** https://github.com/ZxGusst/rodrigo-ruas.git  
-**Stack:** Next.js 16 · Tailwind CSS v4 · GSAP · Sanity CMS  
-**Data:** Junho 2026
+**Repositório:** https://github.com/orbssexp/rodrigo-ruas  
+**Stack:** Next.js 16 · React 19 · Tailwind CSS v4 · GSAP + Lenis · Sanity CMS v5  
+**Atualizado em:** 08/10/2026 (último commit de código: `d3ca4c5`, 30/09/2026)
+
+---
+
+## 0. Estado atual em 1 minuto
+
+- O site roda com **9 pacotes** no Sanity, cadastrados a partir dos PDFs oficiais 2026/2027:
+  - **Grupos do Ruas** (Rodrigo vai junto): África do Sul, Dolomitas
+  - **Pacotes Assinados / privativos** (saída a qualquer data): Egito, Egito e Jordânia, Grécia, Puglia, Puglia e Grécia, Turquia com Capadócia, Turquia e Grécia
+- O tipo **Grupos Brasileiros** já saiu do código, do schema e dos filtros. Ainda sobra texto sobre "grupos" no site (veja o backlog).
+- Página **Viagens realizadas** (`/viagens-realizadas`) no ar, com 4 viagens cadastradas.
+- Página do pacote mostra o **roteiro dia a dia** (`RoteiroDias`) e um **ticket de preço** (`PricingTicket`).
+- No Studio: navbar com botão "Ver site", **exclusão de vários pacotes de uma vez** e um **guia de uso em slides**.
+- **Ainda não tem deploy.**
+- **Próximos passos:** seção 9 (backlog). Cada item vira uma issue no GitHub.
 
 ---
 
 ## 1. Estrutura do repositório
 
 ```
-rodrigo-ruas-clone/
-└── site/                        ← projeto Next.js
+rodrigo-ruas/
+├── HANDOFF.md                 ← este arquivo
+├── _docs/                     ← referências, brand, design system, conteúdo antigo raspado
+├── imgs/                      ← fotos-fonte (pacotes-2026/<slug>/, galeria/<slug>/, ...)
+└── site/                      ← projeto Next.js
     ├── app/
-    │   ├── page.tsx             ← Homepage
-    │   ├── layout.tsx           ← Layout raiz + providers
-    │   ├── pacotes/
-    │   │   ├── selecao/         ← Listagem de destinos com filtros
-    │   │   └── [slug]/          ← Página individual de cada pacote
-    │   ├── sobre/               ← Página sobre
-    │   ├── contato/             ← Página contato
-    │   ├── admin/               ← Sanity Studio (autenticado)
+    │   ├── page.tsx                 ← Homepage
+    │   ├── pacotes/selecao/         ← Listagem com filtros (FilterBar, FilterPanel, PriceCalculator)
+    │   ├── pacotes/[slug]/          ← Página do pacote (roteiro por dias + PricingTicket)
+    │   ├── viagens-realizadas/      ← Galeria de viagens passadas (+ [slug] com fotos)
+    │   ├── sobre/ · contato/ · obrigado/
+    │   ├── style-guide/             ← Referência visual dos tokens/tipografia
+    │   ├── admin/[[...tool]]/       ← Sanity Studio embutido
     │   └── api/
-    │       ├── submit-form/     ← Recebe dados do formulário → envia ao webhook
-    │       └── destinos/        ← Retorna pacotes por tipo (usado no form step 3)
+    │       ├── submit-form/         ← Recebe o formulário → manda ao webhook
+    │       └── destinos/            ← Pacotes por tipo (step 3 do form)
     ├── components/
-    │   ├── FormModal.tsx        ← Formulário multi-step (drawer lateral)
-    │   ├── FormProvider.tsx     ← Context global para abrir/fechar o form
-    │   └── gsap/
-    │       ├── NavBar.tsx       ← Navbar desktop
-    │       └── MobileMenu.tsx   ← Menu mobile (fullscreen)
+    │   ├── FormModal.tsx / FormProvider.tsx / BtnForm.tsx  ← Formulário multi-step (drawer)
+    │   ├── RoteiroDias.tsx · PricingTicket.tsx · DestinosSection.tsx · DestinosModal.tsx
+    │   └── gsap/                    ← NavBar, MobileMenu, HeroSection, PackagesReel, animações
     ├── sanity/
-    │   ├── schemaTypes/         ← Schemas do CMS (pacote, formulario, homepage, etc.)
-    │   └── components/
-    │       └── GuiaDoc.tsx      ← Guia de uso exibido no Sanity Studio
-    └── scripts/
-        ├── seed-completo.mjs    ← Popula o CMS com dados iniciais
-        └── test-token.mjs       ← Testa conexão com a API do Sanity
+    │   ├── schemaTypes/             ← pacote, viagemRealizada, homepage, formulario
+    │   ├── components/              ← GuiaDoc, StudioNavbar, BulkDeletePacotes, DocProgress...
+    │   └── lib/queries.ts           ← Queries GROQ
+    └── scripts/                     ← seeds e utilitários (ver seção 7)
 ```
 
 ---
 
-## 2. Setup local
+## 2. Setup local (qualquer máquina)
 
 ```bash
-# 1. Clonar
-git clone https://github.com/ZxGusst/rodrigo-ruas.git
-cd rodrigo-ruas-clone/site
-
-# 2. Instalar dependências
+git clone https://github.com/orbssexp/rodrigo-ruas.git
+cd rodrigo-ruas/site
 npm install
-
-# 3. Configurar variáveis de ambiente
-cp .env.local.example .env.local
-# Editar .env.local com as credenciais (pedir ao Gustavo)
-
-# 4. Rodar
+cp .env.local.example .env.local   # preencher (ver abaixo)
 npm run dev
 # → http://localhost:3000
 # → http://localhost:3000/admin  (Sanity Studio)
 ```
 
-### Variáveis de ambiente (`.env.local`)
+### Variáveis de ambiente (`site/.env.local`, gitignored)
 
 | Variável | Descrição | Obrigatório |
 |----------|-----------|-------------|
-| `NEXT_PUBLIC_SANITY_PROJECT_ID` | ID do projeto Sanity (`6g3tj20r`) | ✅ |
-| `NEXT_PUBLIC_SANITY_DATASET` | Dataset (`production`) | ✅ |
-| `SITE_USUARIO` | Login do painel `/admin` | ✅ |
-| `SITE_SENHA` | Senha do painel `/admin` | ✅ |
-| `SANITY_TOKEN` | Token write — só para rodar scripts | Apenas para scripts |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | `6g3tj20r` | ✅ |
+| `NEXT_PUBLIC_SANITY_DATASET` | `production` | ✅ |
+| `SITE_USUARIO` / `SITE_SENHA` | Previstas para proteger o `/admin`, **mas nenhum código usa hoje** (ver seção 8) | — |
+| `SANITY_TOKEN` | Token com permissão de escrita, usado só pelos scripts | Só para scripts |
+
+> O `.env.local` **não vai pelo git**. Para trabalhar em outra máquina, copie o arquivo por um canal seguro.
 
 ---
 
-## 3. CMS — Sanity
+## 3. Fluxo de trabalho (2 máquinas + issues)
 
-**Acesso:** `/admin` no site (autenticado via `SITE_USUARIO` / `SITE_SENHA`)  
-**Project ID:** `6g3tj20r` · **Dataset:** `production`
+- **Backlog = GitHub Issues.** Cada mudança ou feedback de QA vira uma issue. Labels: `qa`, `bug`, `feature`, `conteudo`, `design`, `mobile`, `cms`.
+- **1 issue = 1 branch:** `tipo/<nº>-descricao` (ex.: `feat/7-secao-viagens-passadas`). Commit/PR com `Closes #7`.
+- **Ao trocar de máquina:** `git push` na máquina atual e `git pull` na outra. Não mexa na mesma branch nas duas ao mesmo tempo.
+- **Não sincronize a pasta do repo** (`.git`, `node_modules`, `.next`) com ferramenta de sync de arquivos. O código vai e volta pelo git.
+- **O Sanity é compartilhado.** As duas máquinas e o site usam o mesmo dataset `production`. Seed, exclusão em massa e publicação afetam tudo na hora. Para testar schema ou dados, crie um dataset `dev`.
+- A memória e o histórico do Claude Code ficam em cada máquina. O contexto que precisa viajar fica **neste arquivo e nas issues**.
 
-### Tipos de documento
+---
+
+## 4. CMS — Sanity
+
+**Acesso:** `/admin` · **Project ID:** `6g3tj20r` · **Dataset:** `production`
 
 | Tipo | O que controla |
 |------|---------------|
-| `pacote` | Cada destino/viagem do site |
-| `formulario` | Configuração do formulário de contato (webhook URL, campos, textos) |
-| `homepage` | Título e subtítulo do hero da home |
-| `whatsappGroup` | Cards da roda giratória "Comunidade RR Viagens" |
+| `pacote` | Cada destino. Abas: Básico, Rota & Datas, Investimento, Termos, Conteúdo (roteiro por dias, galeria), SEO |
+| `viagemRealizada` | Cada viagem da galeria `/viagens-realizadas` (capa, local, data, resumo, fotos) |
+| `homepage` | Hero (textos + slides), números, processo, títulos das seções, depoimento, CTA, foto do Rodrigo |
+| `formulario` | Webhook, campos, textos e cards de programa do formulário |
 
-### Campo `tipo` do pacote (importante)
+### Campo `tipo` do pacote
 
-Controla **3 coisas ao mesmo tempo**:
-1. Badge colorido na listagem
-2. Filtro "Tipo" na página `/pacotes/selecao`
-3. Quais pacotes aparecem no **Step 3 do formulário** quando o lead escolhe o programa
+| Valor | Label | Onde aparece |
+|-------|-------|--------------|
+| `gruposDoRuas` | Grupos do Ruas | Seção 1 da home (card destaque + carrossel), filtro, form step 3 |
+| `assinadoByRuas` | Pacotes Assinados (privativos) | Seção 2 da home (grid), filtro, form step 3 |
 
-| Valor | Label |
-|-------|-------|
-| `gruposDoRuas` | Grupo do Ruas |
-| `assinadoByRuas` | Pacotes Assinados |
-| `gruposBrasileiros` | Grupos Brasileiros |
+O mesmo campo controla o badge na listagem, o filtro "Tipo" em `/pacotes/selecao`, os pacotes que aparecem no step 3 do formulário e a whitelist em `api/destinos`.
+
+### Campo `prioridade`
+
+`destaque` vira o card grande no topo da seção, `carrossel` entra na rolagem lateral e `oculto` não aparece na home. O campo `ordem` define a posição no carrossel.
 
 ---
 
-## 4. Formulário de contato
+## 5. Formulário de contato
 
-O formulário é um **drawer lateral em 3 etapas**:
+Drawer lateral em 3 etapas:
 
 ```
-Step 1 → Dados pessoais   (campos configurados no Sanity)
-Step 2 → Programa         (cards hardcoded: Grupo do Ruas / Pacotes Assinados / Grupos Brasileiros)
-Step 3 → Destino          (checkboxes carregados da API /api/destinos?tipo={programa})
+Step 1 → Dados pessoais   (campos vindos do Sanity; telefone com react-international-phone, padrão +55)
+Step 2 → Programa         (Grupos do Ruas / Pacotes Assinados)
+Step 3 → Destino          (checkboxes via /api/destinos?tipo={programa})
 ```
 
-### Comportamento de auto-preenchimento
+Quando o form é aberto a partir de uma página de pacote, o programa e o destino já vêm marcados.
 
-Quando o usuário abre o form **a partir de uma página de pacote**, o formulário:
-- Pré-seleciona o programa do pacote no Step 2
-- Pré-marca o destino no Step 3
-
-### Payload enviado ao webhook (nomes fixos — não alterar)
+**Payload do webhook (nomes fixos, não alterar):**
 
 ```json
-{
-  "nome": "...",
-  "telefone": "+5511999999999",
-  "email": "...",
-  "destino_programa": "gruposDoRuas",
-  "destino": "Japão, Ushuaia"
-}
+{ "nome": "...", "telefone": "+5511999999999", "email": "...",
+  "destino_programa": "gruposDoRuas", "destino": "Egito, Grécia" }
 ```
 
-> ⚠️ A URL do webhook é configurada **no Sanity** (campo `webhookUrl` do documento `formulario`).  
-> O webhook **nunca passa pelo browser** — a API route `/api/submit-form` busca a URL direto do Sanity.
-
-### Campo de telefone
-
-Usa a biblioteca `react-international-phone`:
-- Seletor de bandeira + DDI (padrão 🇧🇷 +55)
-- Máscara automática por país
-- Validação: mínimo 10 dígitos
+A URL do webhook fica no Sanity (`formulario.webhookUrl`). Quem lê essa URL é a rota `/api/submit-form`, no servidor, então ela nunca chega ao browser.
 
 ---
 
-## 5. Navegação
+## 6. Navegação e filtros
 
-| Link | Destino |
-|------|---------|
-| **Destinos** (NavBar) | Abre modal com destinos em destaque |
-| **Grupos** (NavBar) | `/pacotes/selecao?tipo=gruposBrasileiros` (filtro pré-aplicado) |
-| **Sobre** | `/sobre` |
-| **Contato** | `/contato` |
-| **Falar no WhatsApp** | Abre o FormModal |
+**NavBar:** Destinos (abre um modal) · Galeria (`/viagens-realizadas`) · Sobre · Contato · botão WhatsApp (abre o form)
+
+**`/pacotes/selecao`:** filtros por URL que podem ser combinados: `?continente=Asia&tipo=gruposDoRuas&precoMax=15000`
 
 ---
 
-## 6. Filtros na página de destinos (`/pacotes/selecao`)
+## 7. Scripts (`site/scripts/`)
 
-Três filtros via URL searchParams:
+Rodar de dentro de `site/` com `SANITY_TOKEN` no ambiente.
 
-| Parâmetro | Exemplo | Descrição |
-|-----------|---------|-----------|
-| `continente` | `?continente=Asia` | Filtra por região |
-| `tipo` | `?tipo=gruposDoRuas` | Filtra por tipo de pacote |
-| `precoMax` | `?precoMax=15000` | Filtra por preço máximo |
+| Script | O que faz |
+|--------|-----------|
+| `seed-pacotes-2026.mjs [slug] [--dry]` | **Atual.** Cadastra os pacotes 2026/2027 a partir de `data/pacotes-2026.json` + fotos em `imgs/pacotes-2026/<slug>/` (00 = hero). Grava como **rascunho**, que precisa ser publicado no Studio |
+| `seed-galeria.mjs [slug]` | Cadastra as viagens realizadas a partir de `data/galeria.json` + `imgs/galeria/<slug>/`. Também grava como rascunho |
+| `upload-fotos.mjs` | Sobe hero e galeria de pacotes |
+| `test-token.mjs` | Testa o token |
+| `seed-completo.mjs`, `seed-pacotes.mjs`, `seed-itinerarios.mjs`, `pacotes-seed.ndjson` | **Legado**: conteúdo antigo do site pacotespelomundo. Não rode em `production` |
 
-Os filtros são combináveis: `?continente=Asia&tipo=gruposDoRuas`
-
----
-
-## 7. Segurança
-
-### O que está protegido
-- ✅ Token Sanity **nunca** está no código — apenas em `.env.local` (gitignored)
-- ✅ URL do webhook **não chega ao browser** — buscada server-side
-- ✅ API `/api/destinos` valida o parâmetro `tipo` contra whitelist
-- ✅ API `/api/submit-form` ignora qualquer `_webhookUrl` enviado pelo cliente
-- ✅ Painel `/admin` protegido por login via middleware
-
-### ⚠️ Ação pendente (fazer antes de ir pra produção)
-
-O token Sanity antigo (`skTMByody...`) foi encontrado no histórico do git em commits antigos.  
-**Deve ser revogado e substituído:**
-
-1. Acessar → sanity.io/manage → projeto `6g3tj20r`
-2. **API → Tokens → Revogar** o token antigo
-3. Criar novo token com permissão **Write**
-4. Salvar em `.env.local` como `SANITY_TOKEN=sk...novo`
-5. Compartilhar o novo token com os devs via canal seguro (não por git/chat)
+**Fonte dos pacotes atuais:** PDFs da Ludmilla (Egito, Egito e Jordânia, Grécia, Puglia, Puglia e Grécia, Turquia com Capadócia, Turquia e Grécia, Dolomitas 2027, África do Sul v3). Estão fora do repo, em `Downloads/PACOTES NOVOS LUDMILLA` (86 MB). O texto deles já foi extraído para `data/pacotes-2026.json`.
 
 ---
 
-## 8. Scripts úteis
+## 8. Segurança e pendências
 
-```bash
-# Seed do CMS (popula com pacotes reais)
-SANITY_TOKEN=sk... node scripts/seed-completo.mjs
-
-# Testar conexão com Sanity
-SANITY_TOKEN=sk... node scripts/test-token.mjs
-
-# Build de produção
-npm run build
-
-# Linting
-npm run lint
-```
+- ✅ O token Sanity não está no código, só no `.env.local`.
+- ✅ A URL do webhook não chega ao browser, e `/api/submit-form` ignora `_webhookUrl` vindo do cliente.
+- ✅ `/api/destinos` valida `tipo` contra uma whitelist.
+- ⚠️ **O `/admin` não tem login próprio.** Não existe middleware e `SITE_USUARIO`/`SITE_SENHA` não são lidos por nenhum código. Quem protege é só o login do Sanity (é preciso ser membro do projeto para editar). Decidir se isso basta antes de ir para produção.
+- ⚠️ **Token antigo no histórico do git.** Um token Sanity antigo (`skTMByody...`) aparece em commits antigos. Para resolver: sanity.io/manage → `6g3tj20r` → API → Tokens → revogar o antigo e criar um novo com permissão de escrita. Guarde o novo só no `.env.local` e compartilhe por canal seguro.
+- ⚠️ **Sem deploy.** A recomendação é Vercel (`npx vercel --prod` dentro de `site/`), com as variáveis configuradas no painel.
 
 ---
 
-## 9. Deploys
+## 9. Backlog (out/2026). Cada item vira uma issue
 
-O projeto ainda não tem deploy configurado. Recomendação: **Vercel** (integração nativa com Next.js).
-
-```bash
-# Via CLI (dentro de site/)
-npx vercel --prod
-```
-
-Variáveis de ambiente devem ser configuradas no painel da Vercel antes do primeiro deploy.
+1. **Remover tudo sobre grupos, exceto Grupos do Ruas.** A empresa não faz mais grupos de brasileiros. O tipo já saiu do código; falta revisar os textos que ainda falam de "grupos" de forma genérica (`sobre/page.tsx`, títulos e cópia da home, cards do form, `"X por grupo"` na página do pacote) e garantir que não sobrou nenhum documento ou cópia no Sanity.
+2. **Nova seção na home: "Viagens passadas" ou relacionados.** Pode reaproveitar `viagemRealizada` (já existe, com 4 cadastradas) ou mostrar pacotes relacionados.
+3. **Atualizar o conteúdo do site para o que estão vendendo e divulgando hoje.** Conferir os 9 pacotes contra as versões mais recentes dos PDFs (os nomes dos arquivos têm números de versão, então pode ter mudado alguma coisa), além de hero, números, depoimento, Sobre e CTA. Destacar os privativos como produto principal.
+4. **Refinar design e interação no desktop.**
+5. **Refinar design e interação no mobile.**
 
 ---
 
