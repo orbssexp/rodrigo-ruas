@@ -43,7 +43,7 @@ export default function SobrePage() {
             <ScrollReveal delay={0.1}>
               <p className="t-body-lg mb-4">
                 Rodrigo Ruas não é agente de viagens — é um viajante profissional que já
-                filmou seu programa em 93 países. Desde 2019, conduz grupos
+                filmou seu programa em 93 países. Desde 2019, lidera os Grupos do Ruas
                 pelo mundo e já levou mais de 1.500 pessoas a destinos que só ele conhece
                 como ninguém.
               </p>
@@ -94,7 +94,7 @@ export default function SobrePage() {
             <p className="t-body-lg mb-6">
               Em 2019, fundou a RR Viagens para compartilhar essa experiência com outros
               viajantes. Em 6 anos de operação, já levou mais de 1.500 pessoas para destinos
-              ao redor do mundo — com grupos cuidadosamente planejados e vivências que não
+              ao redor do mundo — com roteiros cuidadosamente planejados e vivências que não
               existem em nenhum pacote de agência convencional.
             </p>
             <p className="t-body-lg">

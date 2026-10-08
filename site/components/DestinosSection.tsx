@@ -129,11 +129,11 @@ export function DestinosSection({
           </p>
         )}
 
-        {/* Fileira 1 — Grupos de Viagem */}
+        {/* Fileira 1 — Grupos do Ruas */}
         {gruposFiltrados.length > 0 && (
           <div className="mb-14">
             <ScrollReveal className="flex items-center justify-between mb-8">
-              <p className="t-label">Grupos de Viagem</p>
+              <p className="t-label">Grupos do Ruas</p>
               <TransitionLink href="/pacotes/selecao"
                 className="t-label text-foreground-muted hover:text-foreground transition-colors">
                 Ver todos →

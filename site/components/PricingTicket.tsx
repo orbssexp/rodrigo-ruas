@@ -204,9 +204,15 @@ export function PricingTicket(props: PricingTicketProps) {
               )}
               <p className="text-[16px] flex gap-2" style={{ color: MUTED }}>
                 <span style={{ color: MUTED }}>•</span>
-                <span>Grupo de {vagas ?? 30} pessoas. Atendimento direto com Rodrigo.{" "}
-                  <span className="font-semibold" style={{ color: NAVY }}>Vagas limitadas.</span>
-                </span>
+                {tipo === "gruposDoRuas" ? (
+                  <span>Grupo de {vagas ?? 30} pessoas. Atendimento direto com Rodrigo.{" "}
+                    <span className="font-semibold" style={{ color: NAVY }}>Vagas limitadas.</span>
+                  </span>
+                ) : (
+                  <span>Roteiro privativo, no seu ritmo. Atendimento direto com Rodrigo.{" "}
+                    <span className="font-semibold" style={{ color: NAVY }}>Disponibilidade sob consulta.</span>
+                  </span>
+                )}
               </p>
             </div>
           </div>
